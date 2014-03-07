@@ -1,4 +1,5 @@
 <map id="sw/adc_core.h" name="sw/adc_core.h">
-<area shape="rect" id="node3" href="$adc__core_8c.html" title="Implementation of ADC Core Driver." alt="" coords="5,83,112,112"/>
-<area shape="rect" id="node5" href="$main_8c.html" title="Implementation of Main Function." alt="" coords="136,83,219,112"/>
+<area shape="rect" id="node3" href="$ad9361_8c.html" title="Implementation of AD9361 Driver." alt="" coords="5,83,101,112"/>
+<area shape="rect" id="node5" href="$adc__core_8c.html" title="Implementation of ADC Core Driver." alt="" coords="125,83,232,112"/>
+<area shape="rect" id="node7" href="$main_8c.html" title="Implementation of Main Function." alt="" coords="256,83,339,112"/>
 </map>

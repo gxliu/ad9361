@@ -96,12 +96,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &quot;<a class="el" href="ad9361_8h_source.html">ad9361.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="util_8h_source.html">util.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="adc__core_8h_source.html">adc_core.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ad9361.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ad9361_8c__incl.png" border="0" usemap="#sw_2ad9361_8c" alt=""/></div>
 <map name="sw_2ad9361_8c" id="sw_2ad9361_8c">
-<area shape="rect" id="node3" href="ad9361_8h.html" title="Header file of AD9361 Driver." alt="" coords="31,160,106,189"/><area shape="rect" id="node5" href="common_8h.html" title="Header file of Common Driver." alt="" coords="269,237,351,267"/><area shape="rect" id="node12" href="util_8h.html" title="Header file of Util driver." alt="" coords="310,83,361,112"/></map>
+<area shape="rect" id="node3" href="ad9361_8h.html" title="Header file of AD9361 Driver." alt="" coords="21,160,96,189"/><area shape="rect" id="node5" href="common_8h.html" title="Header file of Common Driver." alt="" coords="30,237,113,267"/><area shape="rect" id="node12" href="util_8h.html" title="Header file of Util driver." alt="" coords="158,83,209,112"/><area shape="rect" id="node25" href="adc__core_8h.html" title="Header file of ADC Core Driver." alt="" coords="233,83,318,112"/></map>
 </div>
 </div>
 <p><a href="ad9361_8c_source.html">Go to the source code of this file.</a></p>
@@ -128,13 +129,21 @@ Functions</h2></td></tr>
 <tr class="memitem:aa9939f6a16f9b3621119127008ec29e5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#aa9939f6a16f9b3621119127008ec29e5">ad9361_spi_write</a> (u32 reg, u32 val)</td></tr>
 <tr class="memitem:a7462764aba2c3b1a0145b63526ebdb83"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a7462764aba2c3b1a0145b63526ebdb83">__ad9361_spi_writef</a> (u32 reg, u32 mask, u32 offset, u32 val)</td></tr>
 <tr class="memitem:a14791701108d852029a80ea56b30429a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a14791701108d852029a80ea56b30429a">ad9361_spi_writem</a> (u32 reg, u8 *tbuf, u32 num)</td></tr>
+<tr class="memitem:a5f9730efc3d5479d239f773cf0ee8109"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f9730efc3d5479d239f773cf0ee8109"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_hdl_loopback</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool enable)</td></tr>
+<tr class="memitem:a64a58546bd4509aef1847752790bf955"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64a58546bd4509aef1847752790bf955"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_bist_loopback</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, unsigned mode)</td></tr>
+<tr class="memitem:a315ed3395e27a9c5b47c9e8a1d416be0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a315ed3395e27a9c5b47c9e8a1d416be0"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_bist_prbs</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, enum ad9361_bist_mode mode)</td></tr>
+<tr class="memitem:afee1b3523d66611b70e3500e0c4d2a9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afee1b3523d66611b70e3500e0c4d2a9f"></a>
+static ssize_t&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_dig_interface_timing_analysis</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, char *buf, unsigned buflen)</td></tr>
 <tr class="memitem:a390ca0d74a254ee0d81fcbd571121671"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a390ca0d74a254ee0d81fcbd571121671">ad9361_check_cal_done</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, u32 reg, u32 mask, bool done_state)</td></tr>
 <tr class="memitem:afa4ca11029e720ec7e164af5ab35d961"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#afa4ca11029e720ec7e164af5ab35d961">ad9361_run_calibration</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, u32 mask)</td></tr>
 <tr class="memitem:adc14c7e4ffb0b5224a0c5b151c98856b"><td class="memItemLeft" align="right" valign="top">static enum rx_gain_table_name&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#adc14c7e4ffb0b5224a0c5b151c98856b">ad9361_gt_tableindex</a> (u64 freq)</td></tr>
 <tr class="memitem:a7dc1a874e29b3910c58ba668c7780630"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a7dc1a874e29b3910c58ba668c7780630">ad9361_to_clk</a> (u64 freq)</td></tr>
 <tr class="memitem:a2541fa569730b2bd970a237a99b2b2ae"><td class="memItemLeft" align="right" valign="top">u64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a2541fa569730b2bd970a237a99b2b2ae">ad9361_from_clk</a> (unsigned long freq)</td></tr>
 <tr class="memitem:a205953100db7f703cbf914aae836d9ac"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a205953100db7f703cbf914aae836d9ac">ad9361_load_gt</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, u64 freq, u32 dest)</td></tr>
-<tr class="memitem:a23c41cac9456950d7f61b810d0d2043e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a23c41cac9456950d7f61b810d0d2043e">ad9361_setup_ext_lna</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, u32 gain_mdB, u32 bypass_loss_mdB)</td></tr>
+<tr class="memitem:a7ab529f83535b37ac73cbd66bdf33c7b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a7ab529f83535b37ac73cbd66bdf33c7b">ad9361_setup_ext_lna</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, struct <a class="el" href="structelna__control.html">elna_control</a> *ctrl)</td></tr>
 <tr class="memitem:a60055d14620ed1425a9302b5c805a28a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a60055d14620ed1425a9302b5c805a28a">ad9361_clkout_control</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, enum ad9361_clkout mode)</td></tr>
 <tr class="memitem:aa50d79bf0878f2bb264ef1b532128841"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#aa50d79bf0878f2bb264ef1b532128841">ad9361_load_mixer_gm_subtable</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy)</td></tr>
 <tr class="memitem:a02aa783d75f6aa1e4a196b67f5544feb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a02aa783d75f6aa1e4a196b67f5544feb">ad9361_set_tx_atten</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, u32 atten_mdb, bool tx1, bool tx2, bool immed)</td></tr>
@@ -165,7 +174,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a197692ff272ff644f4afaa3a0fd75231"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a197692ff272ff644f4afaa3a0fd75231">ad9361_rf_dc_offset_calib</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, u64 rx_freq)</td></tr>
 <tr class="memitem:a174353deff39c816c22af935d06d57ca"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a174353deff39c816c22af935d06d57ca">ad9361_tx_quad_calib</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, unsigned long bw, int rx_phase)</td></tr>
 <tr class="memitem:abcb79c1a42bd3e83b7527065e2e0fa9c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#abcb79c1a42bd3e83b7527065e2e0fa9c">ad9361_tracking_control</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool bbdc_track, bool rfdc_track, bool rxquad_track)</td></tr>
-<tr class="memitem:a1f7721020b11c17d1665bc6595cef463"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a1f7721020b11c17d1665bc6595cef463">ad9361_trx_vco_cal_control</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool rx, bool enable)</td></tr>
+<tr class="memitem:a6e56ba18f84deb88be38e0c0e645f17b"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a6e56ba18f84deb88be38e0c0e645f17b">ad9361_trx_vco_cal_control</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool tx, bool enable)</td></tr>
 <tr class="memitem:aa452b7afedd4a0630cf41c27127eee2d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#aa452b7afedd4a0630cf41c27127eee2d">ad9361_trx_ext_lo_control</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool rx, bool enable)</td></tr>
 <tr class="memitem:afa588033a9d1a463f6e105a54322ee2c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#afa588033a9d1a463f6e105a54322ee2c">ad9361_set_ref_clk_cycles</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, unsigned long ref_clk_hz)</td></tr>
 <tr class="memitem:a9bf4bcca4bf0732cdbb2228d81824cce"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a9bf4bcca4bf0732cdbb2228d81824cce">ad9361_set_dcxo_tune</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, u32 coarse, u32 fine)</td></tr>
@@ -173,9 +182,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a89dbf9375eef83393b336fd97e469b08"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a89dbf9375eef83393b336fd97e469b08">ad9361_pp_port_setup</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool restore_c3)</td></tr>
 <tr class="memitem:ab232c9427520c4a7cd95bffd13e640f1"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#ab232c9427520c4a7cd95bffd13e640f1">ad9361_gc_update</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy)</td></tr>
 <tr class="memitem:ac5c1d70e11c06c655d8ffe456825cca8"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#ac5c1d70e11c06c655d8ffe456825cca8">ad9361_gc_setup</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, struct <a class="el" href="structgain__control.html">gain_control</a> *ctrl)</td></tr>
-<tr class="memitem:adbe1559178f0aea4722f5c8bddc683f3"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#adbe1559178f0aea4722f5c8bddc683f3">ad9361_auxdac_setup</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy)</td></tr>
+<tr class="memitem:a02799117fc17cb2c7f6ae9af5747b8d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a02799117fc17cb2c7f6ae9af5747b8d0"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_auxdac_set</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, unsigned dac, unsigned val_mV)</td></tr>
+<tr class="memitem:add914d058c93b429028b95e54c7e934c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add914d058c93b429028b95e54c7e934c"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_auxdac_get</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, unsigned dac)</td></tr>
+<tr class="memitem:a9c3d09e91ca2ed631a5169b1421bee98"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a9c3d09e91ca2ed631a5169b1421bee98">ad9361_auxdac_setup</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, struct <a class="el" href="structauxdac__control.html">auxdac_control</a> *ctrl)</td></tr>
 <tr class="memitem:a447c4fe44d45b55b0fcaf971751ce640"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a447c4fe44d45b55b0fcaf971751ce640">ad9361_auxadc_setup</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, struct <a class="el" href="structauxadc__control.html">auxadc_control</a> *ctrl, unsigned long bbpll_freq)</td></tr>
 <tr class="memitem:a4df4e0daf9c177184f2967e036778a28"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a4df4e0daf9c177184f2967e036778a28">ad9361_get_temp</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy)</td></tr>
+<tr class="memitem:a58af90cfdc066785cd15602824f1d87f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58af90cfdc066785cd15602824f1d87f"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_get_auxadc</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy)</td></tr>
 <tr class="memitem:afcde105e2602996279e981c54bc6091c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#afcde105e2602996279e981c54bc6091c">ad9361_ctrl_outs_setup</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, struct <a class="el" href="structctrl__outs__control.html">ctrl_outs_control</a> *ctrl)</td></tr>
 <tr class="memitem:a538b3be562c5c36380baae8176664b68"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a538b3be562c5c36380baae8176664b68">ad9361_gpo_setup</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy)</td></tr>
 <tr class="memitem:a46be783f965c7a44b2a2515890f479f3"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a46be783f965c7a44b2a2515890f479f3">ad9361_rssi_setup</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, struct <a class="el" href="structrssi__control.html">rssi_control</a> *ctrl, bool is_update)</td></tr>
@@ -184,7 +199,25 @@ Functions</h2></td></tr>
 <tr class="memitem:ae6c7a4582db7fa277224bef382c0c161"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#ae6c7a4582db7fa277224bef382c0c161">ad9361_set_trx_clock_chain</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, unsigned long *rx_path_clks, unsigned long *tx_path_clks)</td></tr>
 <tr class="memitem:adbae49a255a2cf847ad4367e24395c95"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#adbae49a255a2cf847ad4367e24395c95">ad9361_get_trx_clock_chain</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, unsigned long *rx_path_clks, unsigned long *tx_path_clks)</td></tr>
 <tr class="memitem:a14bf6cd01315d6622af42ab9e75cb2f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a14bf6cd01315d6622af42ab9e75cb2f2">ad9361_calculate_rf_clock_chain</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, unsigned long tx_sample_rate, u32 rate_gov, unsigned long *rx_path_clks, unsigned long *tx_path_clks)</td></tr>
+<tr class="memitem:ad171dacd5344c3bd49349077a5e6d9eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad171dacd5344c3bd49349077a5e6d9eb"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_set_trx_clock_chain_freq</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, unsigned long freq)</td></tr>
 <tr class="memitem:a17374a6ca7ef01f3fd60bfb46fdc6f99"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a17374a6ca7ef01f3fd60bfb46fdc6f99">ad9361_set_ensm_mode</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool fdd, bool pinctrl)</td></tr>
+<tr class="memitem:a51509334cbede83168173e8861ec41a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51509334cbede83168173e8861ec41a7"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_fastlock_readval</b> (bool tx, u32 profile, u32 word)</td></tr>
+<tr class="memitem:a3f1473aaf5a6b9d26610eeaff9acad8d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f1473aaf5a6b9d26610eeaff9acad8d"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_fastlock_writeval</b> (bool tx, u32 profile, u32 word, u8 val, bool last)</td></tr>
+<tr class="memitem:a149f89e72ce493d983c06a08151557a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a149f89e72ce493d983c06a08151557a0"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_fastlock_load</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool tx, u32 profile, u8 *values)</td></tr>
+<tr class="memitem:abf11dc4c820c8df3558d9fc7991c550f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf11dc4c820c8df3558d9fc7991c550f"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_fastlock_store</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool tx, u32 profile)</td></tr>
+<tr class="memitem:a4d88692647be8b54fe1b72e8b4608427"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d88692647be8b54fe1b72e8b4608427"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_fastlock_prepare</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool tx, u32 profile, bool prepare)</td></tr>
+<tr class="memitem:a0c154634b6a64f5fc23974503ca554d1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c154634b6a64f5fc23974503ca554d1"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_fastlock_recall</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool tx, u32 profile)</td></tr>
+<tr class="memitem:a5ba7f370777e89de1a04e0906db61435"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ba7f370777e89de1a04e0906db61435"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_fastlock_save</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, bool tx, u32 profile, u8 *values)</td></tr>
+<tr class="memitem:a2c93d151a4cfc1065b67ed06f7b5f787"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c93d151a4cfc1065b67ed06f7b5f787"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_clear_state</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy)</td></tr>
 <tr class="memitem:a39072de34f5d7c9af549466153c49f9b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a39072de34f5d7c9af549466153c49f9b">ad9361_setup</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy)</td></tr>
 <tr class="memitem:a39b4414c5958dfcf21fdc415f7ad9fbc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a39b4414c5958dfcf21fdc415f7ad9fbc">ad9361_do_calib_run</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, u32 cal, int arg)</td></tr>
 <tr class="memitem:a6addad978a0e229dd8c1dd15b0c02b5e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#a6addad978a0e229dd8c1dd15b0c02b5e">ad9361_update_rf_bandwidth</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, u32 rf_rx_bw, u32 rf_tx_bw)</td></tr>
@@ -208,6 +241,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ad6665a42027a2244fa28cde9f55a5fe3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#ad6665a42027a2244fa28cde9f55a5fe3">ad9361_rfpll_set_rate</a> (struct <a class="el" href="structrefclk__scale.html">refclk_scale</a> *clk_priv, unsigned long rate, unsigned long parent_rate)</td></tr>
 <tr class="memitem:ad80a956d8916914401ec3edc44fa9734"><td class="memItemLeft" align="right" valign="top">static struct <a class="el" href="structclk.html">clk</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#ad80a956d8916914401ec3edc44fa9734">ad9361_clk_register</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, const char *name, const char *parent_name, unsigned long flags, u32 source, u32 parent_source)</td></tr>
 <tr class="memitem:ad1930dc0f083df7b093544a8c3b965b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ad9361_8c.html#ad1930dc0f083df7b093544a8c3b965b6">register_clocks</a> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy)</td></tr>
+<tr class="memitem:a96c91b98747a11cf1a98632dbf5c6528"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96c91b98747a11cf1a98632dbf5c6528"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_find_opt_delay</b> (u8 *field, u32 *ret_start)</td></tr>
+<tr class="memitem:a33a3591fc1db67ff40bfb5de5f25a444"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33a3591fc1db67ff40bfb5de5f25a444"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_dig_tune</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy, unsigned long max_freq)</td></tr>
+<tr class="memitem:a66de005939a0c39a85f397d2150fc646"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66de005939a0c39a85f397d2150fc646"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_post_setup</b> (struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *phy)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -230,7 +269,7 @@ static const s8&#160;</td><td class="memItemRight" valign="bottom"><b>tia_table<
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Implementation of AD9361 Driver. </p>
-<p>Copyright 2013(c) Analog Devices, Inc.</p>
+<p>Copyright 2014(c) Analog Devices, Inc.</p>
 <p>All rights reserved.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <ul>
@@ -277,7 +316,7 @@ static const s8&#160;</td><td class="memItemRight" valign="bottom"><b>tia_table<
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The bits value or negative error code in case of failure. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00652">652</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00653">653</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
@@ -321,7 +360,7 @@ static const s8&#160;</td><td class="memItemRight" valign="bottom"><b>tia_table<
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00720">720</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00721">721</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
@@ -374,7 +413,7 @@ static const s8&#160;</td><td class="memItemRight" valign="bottom"><b>tia_table<
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The bits value or negative error code in case of failure. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00628">628</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00629">629</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
@@ -433,7 +472,7 @@ static const s8&#160;</td><td class="memItemRight" valign="bottom"><b>tia_table<
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00694">694</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00695">695</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
@@ -485,7 +524,7 @@ static const s8&#160;</td><td class="memItemRight" valign="bottom"><b>tia_table<
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02816">2816</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03044">3044</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -498,7 +537,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="adbe1559178f0aea4722f5c8bddc683f3"></a>
+<a class="anchor" id="a9c3d09e91ca2ed631a5169b1421bee98"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -509,8 +548,18 @@ Here is the caller graph for this function:</div>
           <td class="memname">static int ad9361_auxdac_setup </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *&#160;</td>
-          <td class="paramname"><em>phy</em></td><td>)</td>
+          <td class="paramname"><em>phy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">struct <a class="el" href="structauxdac__control.html">auxdac_control</a> *&#160;</td>
+          <td class="paramname"><em>ctrl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -523,18 +572,19 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">phy</td><td>The AD9361 state structure. </td></tr>
+    <tr><td class="paramname">ctrl</td><td>Pointer to <a class="el" href="structauxdac__control.html">auxdac_control</a> structure. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02788">2788</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03007">3007</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="ad9361_8c_adbe1559178f0aea4722f5c8bddc683f3_icgraph.png" border="0" usemap="#ad9361_8c_adbe1559178f0aea4722f5c8bddc683f3_icgraph" alt=""/></div>
-<map name="ad9361_8c_adbe1559178f0aea4722f5c8bddc683f3_icgraph" id="ad9361_8c_adbe1559178f0aea4722f5c8bddc683f3_icgraph">
+<div class="center"><img src="ad9361_8c_a9c3d09e91ca2ed631a5169b1421bee98_icgraph.png" border="0" usemap="#ad9361_8c_a9c3d09e91ca2ed631a5169b1421bee98_icgraph" alt=""/></div>
+<map name="ad9361_8c_a9c3d09e91ca2ed631a5169b1421bee98_icgraph" id="ad9361_8c_a9c3d09e91ca2ed631a5169b1421bee98_icgraph">
 <area shape="rect" id="node3" href="ad9361_8h.html#a39072de34f5d7c9af549466153c49f9b" title="ad9361_setup" alt="" coords="207,5,308,35"/><area shape="rect" id="node5" href="ad9361__api_8h.html#af1e53f0a822ba45519da9abfa3bcaa7c" title="ad9361_init" alt="" coords="357,5,445,35"/><area shape="rect" id="node7" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="493,5,544,35"/></map>
 </div>
 </p>
@@ -571,7 +621,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02992">2992</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03236">3236</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -614,7 +664,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02187">2187</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02344">2344</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -660,7 +710,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The clock rate. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04308">4308</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04827">4827</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -713,7 +763,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The closest possible clock rate that can be set. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04335">4335</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04854">4854</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -766,7 +816,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04368">4368</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04887">4887</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -848,7 +898,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The RFPLL frequency. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04463">4463</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04982">4982</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -916,7 +966,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The RFPLL frequency. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04440">4440</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04959">4959</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -983,7 +1033,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03193">3193</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03437">3437</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1051,7 +1101,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00770">770</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00906">906</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1097,7 +1147,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The clock rate. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04222">4222</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04741">4741</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1150,7 +1200,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The closest possible clock rate that can be set. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04240">4240</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04759">4759</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1203,7 +1253,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04273">4273</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04792">4792</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1285,7 +1335,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A struct clk for the new clock or a negative error code. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04643">4643</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l05182">5182</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1339,7 +1389,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00931">931</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01071">1071</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1393,7 +1443,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02863">2863</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03107">3107</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1454,7 +1504,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03605">3605</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04124">4124</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1515,7 +1565,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01637">1637</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01777">1777</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1576,7 +1626,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01621">1621</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01761">1761</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1622,7 +1672,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01290">1290</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01430">1430</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1665,7 +1715,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01359">1359</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01499">1499</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1726,7 +1776,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03013">3013</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03257">3257</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1761,7 +1811,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The shifted frequency value. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00841">841</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00977">977</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1815,7 +1865,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02618">2618</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02775">2775</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1858,7 +1908,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02551">2551</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02708">2708</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1901,7 +1951,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03965">3965</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04484">4484</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1962,7 +2012,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01183">1183</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01323">1323</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2015,7 +2065,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01222">1222</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01362">1362</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2076,7 +2126,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01140">1140</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01280">1280</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2119,7 +2169,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The measured temperature of the device. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02850">2850</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03078">3078</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
@@ -2171,7 +2221,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03156">3156</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03400">3400</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
@@ -2208,7 +2258,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The attenuation value [mdB] or negative error code in case of failure. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01023">1023</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01163">1163</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2251,7 +2301,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02877">2877</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03121">3121</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2294,7 +2344,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The index to the RX gain table. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00813">813</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00949">949</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2383,7 +2433,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01574">1574</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01714">1714</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2418,7 +2468,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01591">1591</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01731">1731</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2485,7 +2535,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03711">3711</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04230">4230</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2546,7 +2596,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00853">853</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00989">989</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2589,7 +2639,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00947">947</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01087">1087</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2650,7 +2700,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03770">3770</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04289">4289</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
@@ -2695,7 +2745,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02518">2518</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02675">2675</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2741,7 +2791,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01726">1726</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01883">1883</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2776,7 +2826,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00548">548</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00549">549</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2830,7 +2880,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02204">2204</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02361">2361</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2892,7 +2942,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02489">2489</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02646">2646</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2938,7 +2988,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The clock rate. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04497">4497</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l05016">5016</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -2991,7 +3041,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The closest possible clock rate that can be set. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04535">4535</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l05072">5072</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3044,7 +3094,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04552">4552</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l05089">5089</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3112,7 +3162,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01066">1066</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01206">1206</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3155,7 +3205,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The index from the RF VCO table. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01047">1047</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01187">1187</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3216,7 +3266,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02904">2904</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03148">3148</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3270,7 +3320,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00797">797</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00933">933</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3331,7 +3381,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01762">1762</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01919">1919</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3392,7 +3442,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01973">1973</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02130">2130</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3446,7 +3496,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01915">1915</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02072">2072</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3500,7 +3550,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04087">4087</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04606">4606</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3561,7 +3611,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02456">2456</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02613">2613</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3622,7 +3672,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03313">3313</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03571">3571</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3668,7 +3718,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01653">1653</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01793">1793</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3729,7 +3779,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03953">3953</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04472">4472</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3783,7 +3833,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02439">2439</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02596">2596</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3836,7 +3886,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01507">1507</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01647">1647</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3889,7 +3939,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03112">3112</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03356">3356</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3956,7 +4006,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00984">984</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01124">1124</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -3991,7 +4041,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03337">3337</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03857">3857</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4004,7 +4054,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a23c41cac9456950d7f61b810d0d2043e"></a>
+<a class="anchor" id="a7ab529f83535b37ac73cbd66bdf33c7b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -4020,14 +4070,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">u32&#160;</td>
-          <td class="paramname"><em>gain_mdB</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">u32&#160;</td>
-          <td class="paramname"><em>bypass_loss_mdB</em>&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structelna__control.html">elna_control</a> *&#160;</td>
+          <td class="paramname"><em>ctrl</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -4045,20 +4089,19 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">phy</td><td>The AD9361 state structure. </td></tr>
-    <tr><td class="paramname">gain_mdB</td><td>High gain(non-bypass) value [mdB]. </td></tr>
-    <tr><td class="paramname">bypass_loss_mdB</td><td>Low gain (bypass) value [mdB]. </td></tr>
+    <tr><td class="paramname">ctrl</td><td>Pointer to eLNA control structure. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00914">914</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01049">1049</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="ad9361_8c_a23c41cac9456950d7f61b810d0d2043e_icgraph.png" border="0" usemap="#ad9361_8c_a23c41cac9456950d7f61b810d0d2043e_icgraph" alt=""/></div>
-<map name="ad9361_8c_a23c41cac9456950d7f61b810d0d2043e_icgraph" id="ad9361_8c_a23c41cac9456950d7f61b810d0d2043e_icgraph">
+<div class="center"><img src="ad9361_8c_a7ab529f83535b37ac73cbd66bdf33c7b_icgraph.png" border="0" usemap="#ad9361_8c_a7ab529f83535b37ac73cbd66bdf33c7b_icgraph" alt=""/></div>
+<map name="ad9361_8c_a7ab529f83535b37ac73cbd66bdf33c7b_icgraph" id="ad9361_8c_a7ab529f83535b37ac73cbd66bdf33c7b_icgraph">
 <area shape="rect" id="node3" href="ad9361_8h.html#a39072de34f5d7c9af549466153c49f9b" title="ad9361_setup" alt="" coords="207,5,308,35"/><area shape="rect" id="node5" href="ad9361__api_8h.html#af1e53f0a822ba45519da9abfa3bcaa7c" title="ad9361_init" alt="" coords="357,5,445,35"/><area shape="rect" id="node7" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="493,5,544,35"/></map>
 </div>
 </p>
@@ -4087,7 +4130,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The register value or negative error code in case of failure. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00609">609</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00610">610</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4148,7 +4191,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00574">574</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00575">575</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4194,14 +4237,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00662">662</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00663">663</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="ad9361_8c_aa9939f6a16f9b3621119127008ec29e5_icgraph.png" border="0" usemap="#ad9361_8c_aa9939f6a16f9b3621119127008ec29e5_icgraph" alt=""/></div>
 <map name="ad9361_8c_aa9939f6a16f9b3621119127008ec29e5_icgraph" id="ad9361_8c_aa9939f6a16f9b3621119127008ec29e5_icgraph">
-<area shape="rect" id="node3" href="ad9361_8h.html#ad1112a7fa6342d2d43a2f4543375cabc" title="ad9361_reset" alt="" coords="681,43,780,72"/><area shape="rect" id="node5" href="ad9361__api_8h.html#af1e53f0a822ba45519da9abfa3bcaa7c" title="ad9361_init" alt="" coords="904,95,992,124"/><area shape="rect" id="node7" href="ad9361_8c.html#a7462764aba2c3b1a0145b63526ebdb83" title="__ad9361_spi_writef" alt="" coords="199,147,340,176"/><area shape="rect" id="node9" href="ad9361_8c.html#afa4ca11029e720ec7e164af5ab35d961" title="ad9361_run_calibration" alt="" coords="192,1511,347,1540"/><area shape="rect" id="node11" href="ad9361_8c.html#a40a502f46a334a52fe6f3ea48bd42a86" title="ad9361_rx_bb_analog\l_filter_calib" alt="" coords="425,1562,572,1609"/><area shape="rect" id="node13" href="ad9361_8h.html#a39072de34f5d7c9af549466153c49f9b" title="ad9361_setup" alt="" coords="680,968,781,998"/><area shape="rect" id="node18" href="ad9361_8c.html#a4fe4dece24679b999e84a645f1455785" title="ad9361_tx_bb_analog\l_filter_calib" alt="" coords="425,1442,572,1489"/><area shape="rect" id="node22" href="ad9361_8c.html#af71221a8f8afb45fb55da7dc2f4c0d3e" title="ad9361_bb_dc_offset\l_calib" alt="" coords="425,1320,572,1366"/><area shape="rect" id="node25" href="ad9361_8c.html#a197692ff272ff644f4afaa3a0fd75231" title="ad9361_rf_dc_offset\l_calib" alt="" coords="429,1701,568,1748"/><area shape="rect" id="node32" href="ad9361_8c.html#a174353deff39c816c22af935d06d57ca" title="ad9361_tx_quad_calib" alt="" coords="424,1824,573,1854"/><area shape="rect" id="node38" href="ad9361_8c.html#a205953100db7f703cbf914aae836d9ac" title="ad9361_load_gt" alt="" coords="675,2062,787,2091"/><area shape="rect" id="node41" href="ad9361_8c.html#a23c41cac9456950d7f61b810d0d2043e" title="ad9361_setup_ext_lna" alt="" coords="423,224,575,254"/><area shape="rect" id="node44" href="ad9361_8c.html#aa50d79bf0878f2bb264ef1b532128841" title="ad9361_load_mixer_gm\l_subtable" alt="" coords="420,277,577,324"/><area shape="rect" id="node47" href="ad9361_8c.html#a63919ef9bdf0ade48ec483182ad58f71" title="ad9361_rfpll_vco_init" alt="" coords="659,1494,803,1523"/><area shape="rect" id="node50" href="ad9361_8c.html#a6a28f5fd7bc46022b25ffd6b0fcbd199" title="ad9361_get_split_table_gain" alt="" coords="176,686,363,715"/><area shape="rect" id="node54" href="ad9361_8h.html#a5cbaa482471c862b89fcb3419fd0fc29" title="ad9361_ensm_force_state" alt="" coords="412,2000,585,2030"/><area shape="rect" id="node62" href="ad9361_8c.html#a104a9aa7470a666cfbe3cb2d688145a0" title="ad9361_ensm_restore\l_prev_state" alt="" coords="424,1930,573,1977"/><area shape="rect" id="node67" href="ad9361_8h.html#a9fda0f64d9219993efa2bab2d6b9f945" title="ad9361_set_gain_ctrl_mode" alt="" coords="177,792,361,822"/><area shape="rect" id="node71" href="ad9361_8c.html#a09cfb5673aee0e698311bc884367ffef" title="ad9361_rx_adc_setup" alt="" coords="424,1771,573,1800"/><area shape="rect" id="node75" href="ad9361_8c.html#ae3ee4854d371ef903f607d4185b4ee13" title="ad9361_rx_tia_calib" alt="" coords="431,1390,567,1419"/><area shape="rect" id="node81" href="ad9361_8c.html#ac0273aed26ac3111694f062a6ba31182" title="ad9361_tx_bb_second\l_filter_calib" alt="" coords="423,1632,575,1678"/><area shape="rect" id="node85" href="ad9361_8c.html#aa54312b065d3020f4dc6cc74f4403c84" title="ad9361_txrx_synth_cp\l_calib" alt="" coords="423,346,575,393"/><area shape="rect" id="node91" href="ad9361_8c.html#abcb79c1a42bd3e83b7527065e2e0fa9c" title="ad9361_tracking_control" alt="" coords="417,1878,580,1907"/><area shape="rect" id="node96" href="ad9361_8c.html#aa452b7afedd4a0630cf41c27127eee2d" title="ad9361_trx_ext_lo_control" alt="" coords="183,403,356,432"/><area shape="rect" id="node99" href="ad9361_8c.html#afa588033a9d1a463f6e105a54322ee2c" title="ad9361_set_ref_clk\l_cycles" alt="" coords="203,456,336,502"/><area shape="rect" id="node102" href="ad9361_8c.html#a9bf4bcca4bf0732cdbb2228d81824cce" title="ad9361_set_dcxo_tune" alt="" coords="192,526,347,555"/><area shape="rect" id="node105" href="ad9361_8c.html#a2b0396857b3a404f4858145a7e47de33" title="ad9361_rf_port_setup" alt="" coords="196,579,343,608"/><area shape="rect" id="node108" href="ad9361_8c.html#a89dbf9375eef83393b336fd97e469b08" title="ad9361_pp_port_setup" alt="" coords="193,632,345,662"/><area shape="rect" id="node111" href="ad9361_8c.html#ab232c9427520c4a7cd95bffd13e640f1" title="ad9361_gc_update" alt="" coords="204,1110,335,1139"/><area shape="rect" id="node113" href="ad9361_8c.html#ac5c1d70e11c06c655d8ffe456825cca8" title="ad9361_gc_setup" alt="" coords="437,1046,560,1075"/><area shape="rect" id="node119" href="ad9361_8c.html#adbe1559178f0aea4722f5c8bddc683f3" title="ad9361_auxdac_setup" alt="" coords="193,739,345,768"/><area shape="rect" id="node122" href="ad9361_8c.html#a447c4fe44d45b55b0fcaf971751ce640" title="ad9361_auxadc_setup" alt="" coords="193,1163,345,1192"/><area shape="rect" id="node126" href="ad9361_8c.html#afcde105e2602996279e981c54bc6091c" title="ad9361_ctrl_outs_setup" alt="" coords="189,846,349,875"/><area shape="rect" id="node129" href="ad9361_8c.html#a538b3be562c5c36380baae8176664b68" title="ad9361_gpo_setup" alt="" coords="204,899,335,928"/><area shape="rect" id="node132" href="ad9361_8c.html#a46be783f965c7a44b2a2515890f479f3" title="ad9361_rssi_setup" alt="" coords="204,1216,335,1246"/><area shape="rect" id="node136" href="ad9361_8c.html#adbed522323101e774095fc1cb706c0db" title="ad9361_ensm_set_state" alt="" coords="188,952,351,982"/><area shape="rect" id="node139" href="ad9361_8c.html#a17374a6ca7ef01f3fd60bfb46fdc6f99" title="ad9361_set_ensm_mode" alt="" coords="187,1006,352,1035"/><area shape="rect" id="node143" href="ad9361_8h.html#a31cf9ff7213a93b55678f910af36e1bd" title="ad9361_load_fir_filter_coef" alt="" coords="181,2104,357,2134"/><area shape="rect" id="node149" href="ad9361_8h.html#a8b1ddf1bb07e7935dcbf3344fdfc77d7" title="ad9361_bbpll_set_rate" alt="" coords="193,2158,345,2187"/><area shape="rect" id="node16" href="ad9361_8h.html#a6addad978a0e229dd8c1dd15b0c02b5e" title="ad9361_update_rf_bandwidth" alt="" coords="636,1771,825,1800"/><area shape="rect" id="node28" href="ad9361_8c.html#a39b4414c5958dfcf21fdc415f7ad9fbc" title="ad9361_do_calib_run" alt="" coords="659,1878,803,1907"/><area shape="rect" id="node30" href="ad9361_8h.html#ad6665a42027a2244fa28cde9f55a5fe3" title="ad9361_rfpll_set_rate" alt="" coords="875,1878,1021,1907"/><area shape="rect" id="node52" href="ad9361_8h.html#ac190fe4a1f9230ed7202bc09f3d22b8f" title="ad9361_get_rx_gain" alt="" coords="429,670,568,699"/><area shape="rect" id="node56" href="ad9361_8h.html#ae485da45f31ddb8458120637e3478a46" title="ad9361_set_rx_gain" alt="" coords="661,1939,800,1968"/><area shape="rect" id="node60" href="ad9361__api_8h.html#aa8d78bac73de9396e10d264aa6d459ac" title="ad9361_set_en_state\l_machine_mode" alt="" coords="657,1992,804,2038"/><area shape="rect" id="node69" href="ad9361__api_8h.html#aa3bea2935ee481062daee44b9135ab79" title="ad9361_set_rx_gain\l_control_mode" alt="" coords="429,773,568,820"/><area shape="rect" id="node116" href="ad9361_8c.html#a354e89af7445d5c6076cd7e1a413da8d" title="ad9361_bb_clk_change\l_handler" alt="" coords="420,1098,577,1145"/><area shape="rect" id="node145" href="ad9361_8c.html#a81b10af50209274668b66c9397c375ad" title="ad9361_parse_fir" alt="" coords="439,2104,559,2134"/><area shape="rect" id="node147" href="ad9361__api_8h.html#ab66a466adea8d908c90c694858c27de9" title="ad9361_set_rx_fir_config" alt="" coords="416,2158,581,2187"/></map>
+<area shape="rect" id="node3" href="ad9361_8h.html#ad1112a7fa6342d2d43a2f4543375cabc" title="ad9361_reset" alt="" coords="681,43,780,72"/><area shape="rect" id="node5" href="ad9361__api_8h.html#af1e53f0a822ba45519da9abfa3bcaa7c" title="ad9361_init" alt="" coords="904,95,992,124"/><area shape="rect" id="node7" href="ad9361_8c.html#a7462764aba2c3b1a0145b63526ebdb83" title="__ad9361_spi_writef" alt="" coords="199,147,340,176"/><area shape="rect" id="node9" href="ad9361_8c.html#afa4ca11029e720ec7e164af5ab35d961" title="ad9361_run_calibration" alt="" coords="192,1511,347,1540"/><area shape="rect" id="node11" href="ad9361_8c.html#a40a502f46a334a52fe6f3ea48bd42a86" title="ad9361_rx_bb_analog\l_filter_calib" alt="" coords="425,1562,572,1609"/><area shape="rect" id="node13" href="ad9361_8h.html#a39072de34f5d7c9af549466153c49f9b" title="ad9361_setup" alt="" coords="680,968,781,998"/><area shape="rect" id="node18" href="ad9361_8c.html#a4fe4dece24679b999e84a645f1455785" title="ad9361_tx_bb_analog\l_filter_calib" alt="" coords="425,1442,572,1489"/><area shape="rect" id="node22" href="ad9361_8c.html#af71221a8f8afb45fb55da7dc2f4c0d3e" title="ad9361_bb_dc_offset\l_calib" alt="" coords="425,1320,572,1366"/><area shape="rect" id="node25" href="ad9361_8c.html#a197692ff272ff644f4afaa3a0fd75231" title="ad9361_rf_dc_offset\l_calib" alt="" coords="429,1701,568,1748"/><area shape="rect" id="node32" href="ad9361_8c.html#a174353deff39c816c22af935d06d57ca" title="ad9361_tx_quad_calib" alt="" coords="424,1824,573,1854"/><area shape="rect" id="node38" href="ad9361_8c.html#a205953100db7f703cbf914aae836d9ac" title="ad9361_load_gt" alt="" coords="675,2062,787,2091"/><area shape="rect" id="node41" href="ad9361_8c.html#a7ab529f83535b37ac73cbd66bdf33c7b" title="ad9361_setup_ext_lna" alt="" coords="423,224,575,254"/><area shape="rect" id="node44" href="ad9361_8c.html#aa50d79bf0878f2bb264ef1b532128841" title="ad9361_load_mixer_gm\l_subtable" alt="" coords="420,277,577,324"/><area shape="rect" id="node47" href="ad9361_8c.html#a63919ef9bdf0ade48ec483182ad58f71" title="ad9361_rfpll_vco_init" alt="" coords="659,1494,803,1523"/><area shape="rect" id="node50" href="ad9361_8c.html#a6a28f5fd7bc46022b25ffd6b0fcbd199" title="ad9361_get_split_table_gain" alt="" coords="176,686,363,715"/><area shape="rect" id="node54" href="ad9361_8h.html#a5cbaa482471c862b89fcb3419fd0fc29" title="ad9361_ensm_force_state" alt="" coords="412,2000,585,2030"/><area shape="rect" id="node62" href="ad9361_8c.html#a104a9aa7470a666cfbe3cb2d688145a0" title="ad9361_ensm_restore\l_prev_state" alt="" coords="424,1930,573,1977"/><area shape="rect" id="node67" href="ad9361_8h.html#a9fda0f64d9219993efa2bab2d6b9f945" title="ad9361_set_gain_ctrl_mode" alt="" coords="177,792,361,822"/><area shape="rect" id="node71" href="ad9361_8c.html#a09cfb5673aee0e698311bc884367ffef" title="ad9361_rx_adc_setup" alt="" coords="424,1771,573,1800"/><area shape="rect" id="node75" href="ad9361_8c.html#ae3ee4854d371ef903f607d4185b4ee13" title="ad9361_rx_tia_calib" alt="" coords="431,1390,567,1419"/><area shape="rect" id="node81" href="ad9361_8c.html#ac0273aed26ac3111694f062a6ba31182" title="ad9361_tx_bb_second\l_filter_calib" alt="" coords="423,1632,575,1678"/><area shape="rect" id="node85" href="ad9361_8c.html#aa54312b065d3020f4dc6cc74f4403c84" title="ad9361_txrx_synth_cp\l_calib" alt="" coords="423,346,575,393"/><area shape="rect" id="node91" href="ad9361_8c.html#abcb79c1a42bd3e83b7527065e2e0fa9c" title="ad9361_tracking_control" alt="" coords="417,1878,580,1907"/><area shape="rect" id="node96" href="ad9361_8c.html#aa452b7afedd4a0630cf41c27127eee2d" title="ad9361_trx_ext_lo_control" alt="" coords="183,403,356,432"/><area shape="rect" id="node99" href="ad9361_8c.html#afa588033a9d1a463f6e105a54322ee2c" title="ad9361_set_ref_clk\l_cycles" alt="" coords="203,456,336,502"/><area shape="rect" id="node102" href="ad9361_8c.html#a9bf4bcca4bf0732cdbb2228d81824cce" title="ad9361_set_dcxo_tune" alt="" coords="192,526,347,555"/><area shape="rect" id="node105" href="ad9361_8c.html#a2b0396857b3a404f4858145a7e47de33" title="ad9361_rf_port_setup" alt="" coords="196,579,343,608"/><area shape="rect" id="node108" href="ad9361_8c.html#a89dbf9375eef83393b336fd97e469b08" title="ad9361_pp_port_setup" alt="" coords="193,632,345,662"/><area shape="rect" id="node111" href="ad9361_8c.html#ab232c9427520c4a7cd95bffd13e640f1" title="ad9361_gc_update" alt="" coords="204,1110,335,1139"/><area shape="rect" id="node113" href="ad9361_8c.html#ac5c1d70e11c06c655d8ffe456825cca8" title="ad9361_gc_setup" alt="" coords="437,1046,560,1075"/><area shape="rect" id="node119" href="ad9361_8c.html#a9c3d09e91ca2ed631a5169b1421bee98" title="ad9361_auxdac_setup" alt="" coords="193,739,345,768"/><area shape="rect" id="node122" href="ad9361_8c.html#a447c4fe44d45b55b0fcaf971751ce640" title="ad9361_auxadc_setup" alt="" coords="193,1163,345,1192"/><area shape="rect" id="node126" href="ad9361_8c.html#afcde105e2602996279e981c54bc6091c" title="ad9361_ctrl_outs_setup" alt="" coords="189,846,349,875"/><area shape="rect" id="node129" href="ad9361_8c.html#a538b3be562c5c36380baae8176664b68" title="ad9361_gpo_setup" alt="" coords="204,899,335,928"/><area shape="rect" id="node132" href="ad9361_8c.html#a46be783f965c7a44b2a2515890f479f3" title="ad9361_rssi_setup" alt="" coords="204,1216,335,1246"/><area shape="rect" id="node136" href="ad9361_8c.html#adbed522323101e774095fc1cb706c0db" title="ad9361_ensm_set_state" alt="" coords="188,952,351,982"/><area shape="rect" id="node139" href="ad9361_8c.html#a17374a6ca7ef01f3fd60bfb46fdc6f99" title="ad9361_set_ensm_mode" alt="" coords="187,1006,352,1035"/><area shape="rect" id="node143" href="ad9361_8h.html#a31cf9ff7213a93b55678f910af36e1bd" title="ad9361_load_fir_filter_coef" alt="" coords="181,2104,357,2134"/><area shape="rect" id="node149" href="ad9361_8h.html#a8b1ddf1bb07e7935dcbf3344fdfc77d7" title="ad9361_bbpll_set_rate" alt="" coords="193,2158,345,2187"/><area shape="rect" id="node16" href="ad9361_8h.html#a6addad978a0e229dd8c1dd15b0c02b5e" title="ad9361_update_rf_bandwidth" alt="" coords="636,1771,825,1800"/><area shape="rect" id="node28" href="ad9361_8c.html#a39b4414c5958dfcf21fdc415f7ad9fbc" title="ad9361_do_calib_run" alt="" coords="659,1878,803,1907"/><area shape="rect" id="node30" href="ad9361_8h.html#ad6665a42027a2244fa28cde9f55a5fe3" title="ad9361_rfpll_set_rate" alt="" coords="875,1878,1021,1907"/><area shape="rect" id="node52" href="ad9361_8h.html#ac190fe4a1f9230ed7202bc09f3d22b8f" title="ad9361_get_rx_gain" alt="" coords="429,670,568,699"/><area shape="rect" id="node56" href="ad9361_8h.html#ae485da45f31ddb8458120637e3478a46" title="ad9361_set_rx_gain" alt="" coords="661,1939,800,1968"/><area shape="rect" id="node60" href="ad9361__api_8h.html#aa8d78bac73de9396e10d264aa6d459ac" title="ad9361_set_en_state\l_machine_mode" alt="" coords="657,1992,804,2038"/><area shape="rect" id="node69" href="ad9361__api_8h.html#aa3bea2935ee481062daee44b9135ab79" title="ad9361_set_rx_gain\l_control_mode" alt="" coords="429,773,568,820"/><area shape="rect" id="node116" href="ad9361_8c.html#a354e89af7445d5c6076cd7e1a413da8d" title="ad9361_bb_clk_change\l_handler" alt="" coords="420,1098,577,1145"/><area shape="rect" id="node145" href="ad9361_8c.html#a81b10af50209274668b66c9397c375ad" title="ad9361_parse_fir" alt="" coords="439,2104,559,2134"/><area shape="rect" id="node147" href="ad9361__api_8h.html#ab66a466adea8d908c90c694858c27de9" title="ad9361_set_rx_fir_config" alt="" coords="416,2158,581,2187"/></map>
 </div>
 </p>
 
@@ -4255,7 +4298,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00730">730</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00731">731</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4290,7 +4333,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The shifted frequency value. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00830">830</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00966">966</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4333,7 +4376,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04063">4063</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04582">4582</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4401,7 +4444,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02363">2363</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02520">2520</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4462,7 +4505,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02418">2418</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02575">2575</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4475,7 +4518,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a1f7721020b11c17d1665bc6595cef463"></a>
+<a class="anchor" id="a6e56ba18f84deb88be38e0c0e645f17b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -4492,7 +4535,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>rx</em>, </td>
+          <td class="paramname"><em>tx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -4523,13 +4566,13 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02401">2401</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02558">2558</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="ad9361_8c_a1f7721020b11c17d1665bc6595cef463_icgraph.png" border="0" usemap="#ad9361_8c_a1f7721020b11c17d1665bc6595cef463_icgraph" alt=""/></div>
-<map name="ad9361_8c_a1f7721020b11c17d1665bc6595cef463_icgraph" id="ad9361_8c_a1f7721020b11c17d1665bc6595cef463_icgraph">
+<div class="center"><img src="ad9361_8c_a6e56ba18f84deb88be38e0c0e645f17b_icgraph.png" border="0" usemap="#ad9361_8c_a6e56ba18f84deb88be38e0c0e645f17b_icgraph" alt=""/></div>
+<map name="ad9361_8c_a6e56ba18f84deb88be38e0c0e645f17b_icgraph" id="ad9361_8c_a6e56ba18f84deb88be38e0c0e645f17b_icgraph">
 <area shape="rect" id="node3" href="ad9361_8c.html#adbed522323101e774095fc1cb706c0db" title="ad9361_ensm_set_state" alt="" coords="388,7,551,36"/><area shape="rect" id="node11" href="ad9361_8h.html#ad6665a42027a2244fa28cde9f55a5fe3" title="ad9361_rfpll_set_rate" alt="" coords="192,88,339,117"/><area shape="rect" id="node5" href="ad9361_8h.html#a39072de34f5d7c9af549466153c49f9b" title="ad9361_setup" alt="" coords="849,5,951,35"/><area shape="rect" id="node7" href="ad9361__api_8h.html#af1e53f0a822ba45519da9abfa3bcaa7c" title="ad9361_init" alt="" coords="1087,5,1175,35"/><area shape="rect" id="node9" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="1264,5,1315,35"/><area shape="rect" id="node13" href="util_8h.html#a711b9cd88c9121677adf67ab964b93ec" title="clk_set_rate" alt="" coords="423,88,516,117"/><area shape="rect" id="node15" href="ad9361_8h.html#ae6c7a4582db7fa277224bef382c0c161" title="ad9361_set_trx_clock\l_chain" alt="" coords="603,79,752,126"/><area shape="rect" id="node29" href="ad9361__api_8h.html#ae87846c50e314926a95aa039867a5b4e" title="ad9361_set_rx_lo_freq" alt="" coords="601,149,753,179"/><area shape="rect" id="node31" href="ad9361__api_8h.html#a078c1f1351b6e7b8c3f0209e7fe9559b" title="ad9361_set_tx_lo_freq" alt="" coords="601,203,753,232"/><area shape="rect" id="node18" href="ad9361_8h.html#a976e9fc6036098a37a93f5f01fd20a8f" title="ad9361_validate_enable_fir" alt="" coords="811,59,989,88"/><area shape="rect" id="node24" href="ad9361__api_8h.html#ae521900c85ffd277805765cdf0cdba86" title="ad9361_set_rx_sampling_freq" alt="" coords="803,112,997,141"/><area shape="rect" id="node26" href="ad9361__api_8h.html#a3200b2190ba3aed6eb6e60d4bd5cd400" title="ad9361_set_tx_sampling_freq" alt="" coords="803,165,997,195"/><area shape="rect" id="node20" href="ad9361__api_8h.html#aaed1f486b1c49cb1ffd3d4d47daf8e8a" title="ad9361_set_rx_fir_en_dis" alt="" coords="1045,59,1216,88"/><area shape="rect" id="node22" href="ad9361__api_8h.html#a33f7d58a6163e28a33c22d8aefb3ae6f" title="ad9361_set_tx_fir_en_dis" alt="" coords="1045,112,1216,141"/></map>
 </div>
 </p>
@@ -4584,7 +4627,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02027">2027</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02184">2184</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4638,7 +4681,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02068">2068</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02225">2225</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4699,7 +4742,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02247">2247</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02404">2404</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4760,7 +4803,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02136">2136</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l02293">2293</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4813,7 +4856,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03642">3642</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04161">4161</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4848,7 +4891,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l03853">3853</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04372">4372</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4883,7 +4926,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l04728">4728</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l05267">5267</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -4944,7 +4987,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01465">1465</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01605">1605</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -5005,7 +5048,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 in case of success, negative error code otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01419">1419</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l01559">1559</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -5041,7 +5084,7 @@ Here is the caller graph for this function:</div>
 <div class="line">                <span class="stringliteral">&quot;rx&quot;</span>, <span class="stringliteral">&quot;rx_flush&quot;</span>, <span class="stringliteral">&quot;fdd&quot;</span>, <span class="stringliteral">&quot;fdd_flush&quot;</span></div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00538">538</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00539">539</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
@@ -5065,7 +5108,7 @@ Here is the caller graph for this function:</div>
 <b>Initial value:</b><div class="fragment"><div class="line"> {0x0, 0xD, 0x15, 0x1B, 0x21, 0x25, 0x29,</div>
 <div class="line">                         0x2C, 0x2F, 0x31, 0x33, 0x34, 0x35, 0x3A, 0x3D, 0x3E}</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00527">527</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00528">528</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
@@ -5089,7 +5132,7 @@ Here is the caller graph for this function:</div>
 <b>Initial value:</b><div class="fragment"><div class="line"> {0x78, 0x74, 0x70, 0x6C, 0x68, 0x64, 0x60,</div>
 <div class="line">                         0x5C, 0x58, 0x54, 0x50, 0x4C, 0x48, 0x30, 0x18, 0x0}</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00525">525</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00526">526</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
@@ -5115,14 +5158,14 @@ Here is the caller graph for this function:</div>
 <div class="line">                        21, 22, 23, 24,</div>
 <div class="line">                        25, 26, 27, 28}</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00533">533</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8c_source.html#l00534">534</a> of file <a class="el" href="ad9361_8c_source.html">ad9361.c</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 6 2013 12:29:41 for AD9361 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 7 2014 11:18:27 for AD9361 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

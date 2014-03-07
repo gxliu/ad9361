@@ -89,7 +89,7 @@ Collaboration diagram for ad9361_phy_platform_data:</div>
 <div class="dyncontent">
 <div class="center"><img src="structad9361__phy__platform__data__coll__graph.png" border="0" usemap="#ad9361__phy__platform__data_coll__map" alt="Collaboration graph"/></div>
 <map name="ad9361__phy__platform__data_coll__map" id="ad9361__phy__platform__data_coll__map">
-<area shape="rect" id="node2" href="structrssi__control.html" title="rssi_control" alt="" coords="5,5,93,35"/><area shape="rect" id="node4" href="structelna__control.html" title="elna_control" alt="" coords="117,5,208,35"/><area shape="rect" id="node6" href="structauxadc__control.html" title="auxadc_control" alt="" coords="232,5,341,35"/><area shape="rect" id="node8" href="structport__control.html" title="port_control" alt="" coords="365,5,456,35"/><area shape="rect" id="node10" href="structctrl__outs__control.html" title="ctrl_outs_control" alt="" coords="480,5,597,35"/><area shape="rect" id="node12" href="structgain__control.html" title="gain_control" alt="" coords="621,5,712,35"/></map>
+<area shape="rect" id="node2" href="structrssi__control.html" title="rssi_control" alt="" coords="21,5,109,35"/><area shape="rect" id="node4" href="structelna__control.html" title="elna_control" alt="" coords="20,59,111,88"/><area shape="rect" id="node6" href="structauxadc__control.html" title="auxadc_control" alt="" coords="11,112,120,141"/><area shape="rect" id="node8" href="structauxdac__control.html" title="auxdac_control" alt="" coords="11,165,120,195"/><area shape="rect" id="node10" href="structport__control.html" title="port_control" alt="" coords="20,219,111,248"/><area shape="rect" id="node12" href="structctrl__outs__control.html" title="ctrl_outs_control" alt="" coords="7,272,124,301"/><area shape="rect" id="node14" href="structgain__control.html" title="gain_control" alt="" coords="20,325,111,355"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
@@ -154,6 +154,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>tx_atten</b></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>update_tx_gain_via_alert</b></td></tr>
 <tr class="memitem:a37f2dd607a42ef96342db75637b94115"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37f2dd607a42ef96342db75637b94115"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>gpio_resetb</b></td></tr>
+<tr class="memitem:a236389958fe95609d02e09f78696a247"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a236389958fe95609d02e09f78696a247"></a>
+u32&#160;</td><td class="memItemRight" valign="bottom"><b>rx_fastlock_delay_ns</b></td></tr>
+<tr class="memitem:af100c4d88329718ae661243e7785f4af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af100c4d88329718ae661243e7785f4af"></a>
+u32&#160;</td><td class="memItemRight" valign="bottom"><b>tx_fastlock_delay_ns</b></td></tr>
+<tr class="memitem:a8782a48b4bc8ac9259a1c299198d8e4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8782a48b4bc8ac9259a1c299198d8e4c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>trx_fastlock_pinctrl_en</b> [2]</td></tr>
 <tr class="memitem:aa327ea88ed9e18b1cdb46406b0847ac1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa327ea88ed9e18b1cdb46406b0847ac1"></a>
 enum ad9361_clkout&#160;</td><td class="memItemRight" valign="bottom"><b>ad9361_clkout_mode</b></td></tr>
 <tr class="memitem:a06c86066f8d0ca72542ff3c6d54ee509"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06c86066f8d0ca72542ff3c6d54ee509"></a>
@@ -168,17 +174,19 @@ struct <a class="el" href="structctrl__outs__control.html">ctrl_outs_control</a>
 struct <a class="el" href="structelna__control.html">elna_control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>elna_ctrl</b></td></tr>
 <tr class="memitem:a7a7649a03fa716f87fdaf0c163aeaa9b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7a7649a03fa716f87fdaf0c163aeaa9b"></a>
 struct <a class="el" href="structauxadc__control.html">auxadc_control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>auxadc_ctrl</b></td></tr>
+<tr class="memitem:ad25fe69dae0ccba5e4eafb339708ea14"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad25fe69dae0ccba5e4eafb339708ea14"></a>
+struct <a class="el" href="structauxdac__control.html">auxdac_control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>auxdac_ctrl</b></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="ad9361_8h_source.html#l03006">3006</a> of file <a class="el" href="ad9361_8h_source.html">ad9361.h</a>.</p>
+<p>Definition at line <a class="el" href="ad9361_8h_source.html#l03082">3082</a> of file <a class="el" href="ad9361_8h_source.html">ad9361.h</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>sw/<a class="el" href="ad9361_8h_source.html">ad9361.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 6 2013 12:29:47 for AD9361 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 7 2014 11:18:28 for AD9361 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

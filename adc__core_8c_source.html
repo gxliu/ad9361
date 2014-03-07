@@ -93,93 +93,112 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;stdint.h&quot;</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;xil_io.h&quot;</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;xil_cache.h&quot;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;xaxidma_hw.h&quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;sleep.h&quot;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parameters_8h.html" title="Parameters Definitions.">parameters.h</a>&quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="adc__core_8h.html" title="Header file of ADC Core Driver.">adc_core.h</a>&quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/***************************************************************************/</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="adc__core_8c.html#abb7b1061b9c700935a4575d3f8b526d1">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#abb7b1061b9c700935a4575d3f8b526d1" title="adc_read">adc_read</a>(uint32_t regAddr, uint32_t *data)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        *data = Xil_In32(CF_AD9361_RX_BASEADDR + regAddr);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">/***************************************************************************/</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8">   62</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(uint32_t regAddr, uint32_t data)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        Xil_Out32(CF_AD9361_RX_BASEADDR + regAddr, data);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">/***************************************************************************/</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="adc__core_8c.html#a8ed9ff8344a0c09febb2545bdedf3fe3">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#a8ed9ff8344a0c09febb2545bdedf3fe3" title="dma_write">dma_write</a>(uint32_t regAddr, uint32_t data)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        Xil_Out32(CF_AD9361_DMA_BASEADDR + XAXIDMA_RX_OFFSET + regAddr, data);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parameters_8h.html" title="Parameters Definitions.">parameters.h</a>&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="adc__core_8h.html" title="Header file of ADC Core Driver.">adc_core.h</a>&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;stdlib.h&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/***************************************************************************/</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="adc__core_8c.html#abb7b1061b9c700935a4575d3f8b526d1">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#abb7b1061b9c700935a4575d3f8b526d1" title="adc_read">adc_read</a>(uint32_t regAddr, uint32_t *data)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        *data = Xil_In32(CF_AD9361_RX_BASEADDR + regAddr);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">/***************************************************************************/</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8">   61</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(uint32_t regAddr, uint32_t data)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        Xil_Out32(CF_AD9361_RX_BASEADDR + regAddr, data);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">/***************************************************************************/</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="adc__core_8h.html#acbbd339d5538acb57135507a2033bc08">   69</a></span>&#160;uint32_t <a class="code" href="adc__core_8c.html#acbbd339d5538acb57135507a2033bc08" title="axiadc_read">axiadc_read</a>(uint32_t reg)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        uint32_t val;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="adc__core_8c.html#abb7b1061b9c700935a4575d3f8b526d1" title="adc_read">adc_read</a>(reg, &amp;val);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/***************************************************************************/</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="adc__core_8h.html#a2b815e6730e8723a6d1d06d9ef8f31c0">   78</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#a2b815e6730e8723a6d1d06d9ef8f31c0" title="adc_init">adc_init</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_RSTN, 0);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_RSTN, ADI_RSTN);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_CHAN_CNTRL(0), ADI_FORMAT_TYPE | ADI_FORMAT_ENABLE | ADI_ENABLE);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_CHAN_CNTRL(1), ADI_FORMAT_TYPE | ADI_FORMAT_ENABLE | ADI_ENABLE);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_CHAN_CNTRL(2), ADI_FORMAT_TYPE | ADI_FORMAT_ENABLE | ADI_ENABLE);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_CHAN_CNTRL(3), ADI_FORMAT_TYPE | ADI_FORMAT_ENABLE | ADI_ENABLE);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">/***************************************************************************/</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="adc__core_8h.html#abcb054d448ea5346a923300d7c1c5bb8">   92</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#af8a274225c37d4946e040d54d9ab926d" title="adc_capture">adc_capture</a>(uint32_t size, uint32_t start_address)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        uint32_t status;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        uint32_t ba;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        ba = start_address + (size*16);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        Xil_Out32((ba + 0x000), (ba + 0x40)); <span class="comment">// next descriptor</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        Xil_Out32((ba + 0x004), 0x00); <span class="comment">// reserved</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        Xil_Out32((ba + 0x008), start_address); <span class="comment">// start address</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        Xil_Out32((ba + 0x00c), 0x00); <span class="comment">// reserved</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        Xil_Out32((ba + 0x010), 0x00); <span class="comment">// reserved</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        Xil_Out32((ba + 0x014), 0x00); <span class="comment">// reserved</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        Xil_Out32((ba + 0x018), (size*16)); <span class="comment">// no. of bytes</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        Xil_Out32((ba + 0x01c), 0x00); <span class="comment">// status</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        Xil_Out32((ba + 0x040), (ba + 0x00)); <span class="comment">// next descriptor</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        Xil_Out32((ba + 0x044), 0x00); <span class="comment">// reserved</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        Xil_Out32((ba + 0x048), start_address); <span class="comment">// start address</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        Xil_Out32((ba + 0x04c), 0x00); <span class="comment">// reserved</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        Xil_Out32((ba + 0x050), 0x00); <span class="comment">// reserved</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        Xil_Out32((ba + 0x054), 0x00); <span class="comment">// reserved</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        Xil_Out32((ba + 0x058), (size*16)); <span class="comment">// no. of bytes</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        Xil_Out32((ba + 0x05c), 0x00); <span class="comment">// status</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        Xil_DCacheFlush();</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="adc__core_8c.html#a8ed9ff8344a0c09febb2545bdedf3fe3" title="dma_write">dma_write</a>(XAXIDMA_CR_OFFSET, XAXIDMA_CR_RESET_MASK); <span class="comment">// Reset DMA engine</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <a class="code" href="adc__core_8c.html#a8ed9ff8344a0c09febb2545bdedf3fe3" title="dma_write">dma_write</a>(XAXIDMA_CR_OFFSET, 0);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <a class="code" href="adc__core_8c.html#a8ed9ff8344a0c09febb2545bdedf3fe3" title="dma_write">dma_write</a>(XAXIDMA_CDESC_OFFSET, ba); <span class="comment">// Current descriptor pointer</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <a class="code" href="adc__core_8c.html#a8ed9ff8344a0c09febb2545bdedf3fe3" title="dma_write">dma_write</a>(XAXIDMA_CR_OFFSET, XAXIDMA_CR_RUNSTOP_MASK); <span class="comment">// Start DMA channel</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <a class="code" href="adc__core_8c.html#a8ed9ff8344a0c09febb2545bdedf3fe3" title="dma_write">dma_write</a>(XAXIDMA_TDESC_OFFSET, (ba+0x40)); <span class="comment">// Tail descriptor pointer</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_DMA_CNTRL, 0);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_STATUS, ~0);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_DMA_STATUS, ~0);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_DMA_COUNT, (size*16));</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_DMA_CNTRL, ADI_DMA_START);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">do</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <a class="code" href="adc__core_8c.html#abb7b1061b9c700935a4575d3f8b526d1" title="adc_read">adc_read</a>(ADI_REG_DMA_STATUS, &amp;status);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                usleep(1000);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">while</span>((status &amp; ADI_DMA_UNF) == ADI_DMA_UNF);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <a class="code" href="adc__core_8c.html#abb7b1061b9c700935a4575d3f8b526d1" title="adc_read">adc_read</a>(ADI_REG_DMA_STATUS, &amp;status);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">if</span>((status &amp; ADI_DMA_OVF) == ADI_DMA_OVF)</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                xil_printf(<span class="stringliteral">&quot;adc_capture: overflow occurred\n\r&quot;</span>);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        Xil_DCacheFlush();</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> val;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">/***************************************************************************/</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="adc__core_8h.html#a7185a5d94228fea3119d660970554cfd">   81</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#a7185a5d94228fea3119d660970554cfd" title="axiadc_write">axiadc_write</a>(uint32_t reg, uint32_t val)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(reg, val);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">/***************************************************************************/</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="adc__core_8c.html#a0c64ca5b49ecb3e259854e4deddc24fe">   89</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#a0c64ca5b49ecb3e259854e4deddc24fe" title="adc_dma_read">adc_dma_read</a>(uint32_t regAddr, uint32_t *data)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        *data = Xil_In32(CF_AD9361_RX_DMA_BASEADDR + regAddr);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">/***************************************************************************/</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d">   97</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(uint32_t regAddr, uint32_t data)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        Xil_Out32(CF_AD9361_RX_DMA_BASEADDR + regAddr, data);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/***************************************************************************/</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="adc__core_8h.html#a2b815e6730e8723a6d1d06d9ef8f31c0">  105</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="adc__core_8c.html#a2b815e6730e8723a6d1d06d9ef8f31c0" title="adc_init">adc_init</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_RSTN, 0);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_RSTN, ADI_RSTN);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_CHAN_CNTRL(0),</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                ADI_IQCOR_ENB | ADI_FORMAT_SIGNEXT | ADI_FORMAT_ENABLE | ADI_ENABLE);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_CHAN_CNTRL(1),</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                ADI_IQCOR_ENB | ADI_FORMAT_SIGNEXT | ADI_FORMAT_ENABLE | ADI_ENABLE);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_CHAN_CNTRL(2),</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                ADI_IQCOR_ENB | ADI_FORMAT_SIGNEXT | ADI_FORMAT_ENABLE | ADI_ENABLE);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <a class="code" href="adc__core_8c.html#a53bb2577fe0231e305319b8e16a0fab8" title="adc_write">adc_write</a>(ADI_REG_CHAN_CNTRL(3),</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                ADI_IQCOR_ENB | ADI_FORMAT_SIGNEXT | ADI_FORMAT_ENABLE | ADI_ENABLE);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/***************************************************************************/</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="adc__core_8h.html#a44b7db9136b47632d18fede1111cccd2">  123</a></span>&#160;int32_t <a class="code" href="adc__core_8c.html#a44b7db9136b47632d18fede1111cccd2" title="adc_capture">adc_capture</a>(uint32_t size, uint32_t start_address)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        uint32_t reg_val;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        uint32_t transfer_id;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(AXI_DMAC_REG_CTRL, 0x0);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(AXI_DMAC_REG_CTRL, AXI_DMAC_CTRL_ENABLE);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(AXI_DMAC_REG_IRQ_MASK, 0x0);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <a class="code" href="adc__core_8c.html#a0c64ca5b49ecb3e259854e4deddc24fe" title="adc_dma_read">adc_dma_read</a>(AXI_DMAC_REG_TRANSFER_ID, &amp;transfer_id);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <a class="code" href="adc__core_8c.html#a0c64ca5b49ecb3e259854e4deddc24fe" title="adc_dma_read">adc_dma_read</a>(AXI_DMAC_REG_IRQ_PENDING, &amp;reg_val);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(AXI_DMAC_REG_IRQ_PENDING, reg_val);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(AXI_DMAC_REG_DEST_ADDRESS, start_address);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(AXI_DMAC_REG_DEST_STRIDE, 0x0);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(AXI_DMAC_REG_X_LENGTH, (size * 8) - 1);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(AXI_DMAC_REG_Y_LENGTH, 0x0);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(AXI_DMAC_REG_START_TRANSFER, 0x1);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="comment">/* Wait until the new transfer is queued. */</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <a class="code" href="adc__core_8c.html#a0c64ca5b49ecb3e259854e4deddc24fe" title="adc_dma_read">adc_dma_read</a>(AXI_DMAC_REG_START_TRANSFER, &amp;reg_val);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">while</span>(reg_val == 1);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="comment">/* Wait until the current transfer is completed. */</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <a class="code" href="adc__core_8c.html#a0c64ca5b49ecb3e259854e4deddc24fe" title="adc_dma_read">adc_dma_read</a>(AXI_DMAC_REG_IRQ_PENDING, &amp;reg_val);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">while</span>(reg_val != (AXI_DMAC_IRQ_SOT | AXI_DMAC_IRQ_EOT));</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <a class="code" href="adc__core_8c.html#a49d98061fb95eb496f93af49f598d04d" title="adc_dma_write">adc_dma_write</a>(AXI_DMAC_REG_IRQ_PENDING, reg_val);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="comment">/* Wait until the transfer with the ID transfer_id is completed. */</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                <a class="code" href="adc__core_8c.html#a0c64ca5b49ecb3e259854e4deddc24fe" title="adc_dma_read">adc_dma_read</a>(AXI_DMAC_REG_TRANSFER_DONE, &amp;reg_val);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">while</span>((reg_val &amp; (1 &lt;&lt; transfer_id)) != (1 &lt;&lt; transfer_id));</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 6 2013 12:29:39 for AD9361 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 7 2014 11:18:27 for AD9361 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

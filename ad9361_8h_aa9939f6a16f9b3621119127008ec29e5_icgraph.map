@@ -10,7 +10,7 @@
 <area shape="rect" id="node25" href="$ad9361_8c.html#a197692ff272ff644f4afaa3a0fd75231" title="ad9361_rf_dc_offset\l_calib" alt="" coords="429,1701,568,1748"/>
 <area shape="rect" id="node32" href="$ad9361_8c.html#a174353deff39c816c22af935d06d57ca" title="ad9361_tx_quad_calib" alt="" coords="424,1824,573,1854"/>
 <area shape="rect" id="node38" href="$ad9361_8c.html#a205953100db7f703cbf914aae836d9ac" title="ad9361_load_gt" alt="" coords="675,2062,787,2091"/>
-<area shape="rect" id="node41" href="$ad9361_8c.html#a23c41cac9456950d7f61b810d0d2043e" title="ad9361_setup_ext_lna" alt="" coords="423,224,575,254"/>
+<area shape="rect" id="node41" href="$ad9361_8c.html#a7ab529f83535b37ac73cbd66bdf33c7b" title="ad9361_setup_ext_lna" alt="" coords="423,224,575,254"/>
 <area shape="rect" id="node44" href="$ad9361_8c.html#aa50d79bf0878f2bb264ef1b532128841" title="ad9361_load_mixer_gm\l_subtable" alt="" coords="420,277,577,324"/>
 <area shape="rect" id="node47" href="$ad9361_8c.html#a63919ef9bdf0ade48ec483182ad58f71" title="ad9361_rfpll_vco_init" alt="" coords="659,1494,803,1523"/>
 <area shape="rect" id="node50" href="$ad9361_8c.html#a6a28f5fd7bc46022b25ffd6b0fcbd199" title="ad9361_get_split_table_gain" alt="" coords="176,686,363,715"/>
@@ -29,7 +29,7 @@
 <area shape="rect" id="node108" href="$ad9361_8c.html#a89dbf9375eef83393b336fd97e469b08" title="ad9361_pp_port_setup" alt="" coords="193,632,345,662"/>
 <area shape="rect" id="node111" href="$ad9361_8c.html#ab232c9427520c4a7cd95bffd13e640f1" title="ad9361_gc_update" alt="" coords="204,1110,335,1139"/>
 <area shape="rect" id="node113" href="$ad9361_8c.html#ac5c1d70e11c06c655d8ffe456825cca8" title="ad9361_gc_setup" alt="" coords="437,1046,560,1075"/>
-<area shape="rect" id="node119" href="$ad9361_8c.html#adbe1559178f0aea4722f5c8bddc683f3" title="ad9361_auxdac_setup" alt="" coords="193,739,345,768"/>
+<area shape="rect" id="node119" href="$ad9361_8c.html#a9c3d09e91ca2ed631a5169b1421bee98" title="ad9361_auxdac_setup" alt="" coords="193,739,345,768"/>
 <area shape="rect" id="node122" href="$ad9361_8c.html#a447c4fe44d45b55b0fcaf971751ce640" title="ad9361_auxadc_setup" alt="" coords="193,1163,345,1192"/>
 <area shape="rect" id="node126" href="$ad9361_8c.html#afcde105e2602996279e981c54bc6091c" title="ad9361_ctrl_outs_setup" alt="" coords="189,846,349,875"/>
 <area shape="rect" id="node129" href="$ad9361_8c.html#a538b3be562c5c36380baae8176664b68" title="ad9361_gpo_setup" alt="" coords="204,899,335,928"/>

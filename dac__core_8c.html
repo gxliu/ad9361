@@ -95,7 +95,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &quot;stdint.h&quot;</code><br/>
 <code>#include &quot;xil_io.h&quot;</code><br/>
 <code>#include &quot;xil_cache.h&quot;</code><br/>
-<code>#include &quot;xaxivdma_hw.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="parameters_8h_source.html">parameters.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="util_8h_source.html">util.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="dac__core_8h_source.html">dac_core.h</a>&quot;</code><br/>
@@ -104,7 +103,7 @@ Include dependency graph for dac_core.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="dac__core_8c__incl.png" border="0" usemap="#sw_2dac__core_8c" alt=""/></div>
 <map name="sw_2dac__core_8c" id="sw_2dac__core_8c">
-<area shape="rect" id="node11" href="parameters_8h.html" title="Parameters Definitions." alt="" coords="368,83,466,112"/><area shape="rect" id="node15" href="util_8h.html" title="Header file of Util driver." alt="" coords="490,83,541,112"/><area shape="rect" id="node36" href="dac__core_8h.html" title="Header file of DAC Core Driver." alt="" coords="565,83,650,112"/><area shape="rect" id="node26" href="common_8h.html" title="Header file of Common Driver." alt="" coords="588,237,670,267"/><area shape="rect" id="node33" href="ad9361_8h.html" title="Header file of AD9361 Driver." alt="" coords="773,160,848,189"/></map>
+<area shape="rect" id="node9" href="parameters_8h.html" title="Parameters Definitions." alt="" coords="233,83,332,112"/><area shape="rect" id="node13" href="util_8h.html" title="Header file of Util driver." alt="" coords="356,83,406,112"/><area shape="rect" id="node32" href="dac__core_8h.html" title="Header file of DAC Core Driver." alt="" coords="430,83,516,112"/><area shape="rect" id="node22" href="common_8h.html" title="Header file of Common Driver." alt="" coords="448,237,530,267"/><area shape="rect" id="node29" href="ad9361_8h.html" title="Header file of AD9361 Driver." alt="" coords="633,160,708,189"/></map>
 </div>
 </div>
 <p><a href="dac__core_8c_source.html">Go to the source code of this file.</a></p>
@@ -117,12 +116,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dac_
 <tr class="memitem:a2ccfb13e0ce94635b9bc2bc075e0bee0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ccfb13e0ce94635b9bc2bc075e0bee0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dac__core_8c.html#a2ccfb13e0ce94635b9bc2bc075e0bee0">dac_write</a> (uint32_t regAddr, uint32_t data)</td></tr>
 <tr class="memdesc:a2ccfb13e0ce94635b9bc2bc075e0bee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">dac_write <br/></td></tr>
-<tr class="memitem:aafc47a3b021e980f9542807654f1e015"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafc47a3b021e980f9542807654f1e015"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dac__core_8c.html#aafc47a3b021e980f9542807654f1e015">vdma_read</a> (uint32_t regAddr, uint32_t *data)</td></tr>
-<tr class="memdesc:aafc47a3b021e980f9542807654f1e015"><td class="mdescLeft">&#160;</td><td class="mdescRight">vdma_read <br/></td></tr>
-<tr class="memitem:a9e92fb1e2ad791ac8ef806656e222a4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e92fb1e2ad791ac8ef806656e222a4a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dac__core_8c.html#a9e92fb1e2ad791ac8ef806656e222a4a">vdma_write</a> (uint32_t regAddr, uint32_t data)</td></tr>
-<tr class="memdesc:a9e92fb1e2ad791ac8ef806656e222a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">vdma_write <br/></td></tr>
+<tr class="memitem:a78697f2f2f8cfd76984db423df37ec14"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78697f2f2f8cfd76984db423df37ec14"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dac__core_8c.html#a78697f2f2f8cfd76984db423df37ec14">dac_dma_read</a> (uint32_t regAddr, uint32_t *data)</td></tr>
+<tr class="memdesc:a78697f2f2f8cfd76984db423df37ec14"><td class="mdescLeft">&#160;</td><td class="mdescRight">dac_dma_read <br/></td></tr>
+<tr class="memitem:a114a70ab603816b6dd31ff4268a4ad20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a114a70ab603816b6dd31ff4268a4ad20"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dac__core_8c.html#a114a70ab603816b6dd31ff4268a4ad20">dac_dma_write</a> (uint32_t regAddr, uint32_t data)</td></tr>
+<tr class="memdesc:a114a70ab603816b6dd31ff4268a4ad20"><td class="mdescLeft">&#160;</td><td class="mdescRight">dac_dma_write <br/></td></tr>
 <tr class="memitem:a396bbd10c1eff865a9ef82deb24f7764"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a396bbd10c1eff865a9ef82deb24f7764"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dac__core_8c.html#a396bbd10c1eff865a9ef82deb24f7764">dds_default_setup</a> (uint32_t chan, uint32_t phase, uint32_t freq, uint32_t scale)</td></tr>
 <tr class="memdesc:a396bbd10c1eff865a9ef82deb24f7764"><td class="mdescLeft">&#160;</td><td class="mdescRight">dds_default_setup <br/></td></tr>
@@ -183,14 +182,14 @@ struct <a class="el" href="structad9361__rf__phy.html">ad9361_rf_phy</a> *&#160;
 <div class="line">                0xF00, 0xF05, 0xF13, 0xF2B, 0xF4B, 0xF72, 0xF9E, 0xFCE</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="dac__core_8c_source.html#l00060">60</a> of file <a class="el" href="dac__core_8c_source.html">dac_core.c</a>.</p>
+<p>Definition at line <a class="el" href="dac__core_8c_source.html#l00059">59</a> of file <a class="el" href="dac__core_8c_source.html">dac_core.c</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 6 2013 12:29:47 for AD9361 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 7 2014 11:18:28 for AD9361 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

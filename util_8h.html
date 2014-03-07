@@ -96,7 +96,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;limits.h&quot;</code><br/>
 <code>#include &quot;stdio.h&quot;</code><br/>
 <code>#include &quot;stdlib.h&quot;</code><br/>
-<code>#include &quot;sleep.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br/>
 <code>#include &quot;xil_printf.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="ad9361_8h_source.html">ad9361.h</a>&quot;</code><br/>
@@ -105,7 +104,7 @@ Include dependency graph for util.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="util_8h__incl.png" border="0" usemap="#sw_2util_8h" alt=""/></div>
 <map name="sw_2util_8h" id="sw_2util_8h">
-<area shape="rect" id="node13" href="common_8h.html" title="Header file of Common Driver." alt="" coords="350,160,433,189"/><area shape="rect" id="node20" href="ad9361_8h.html" title="Header file of AD9361 Driver." alt="" coords="536,83,610,112"/></map>
+<area shape="rect" id="node11" href="common_8h.html" title="Header file of Common Driver." alt="" coords="262,160,345,189"/><area shape="rect" id="node18" href="ad9361_8h.html" title="Header file of AD9361 Driver." alt="" coords="448,83,522,112"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -148,6 +147,8 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CLK_GET_RATE_NOCACHE</b>&#160;&#160;&#160;BIT(6)</td></tr>
 <tr class="memitem:a6688466d4d55a4f9f3bb58422fc4b572"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6688466d4d55a4f9f3bb58422fc4b572"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>dev_err</b>(format,...)&#160;&#160;&#160;printf(format, ## __VA_ARGS__)</td></tr>
+<tr class="memitem:a981956593b8ad70fd80959c2958166f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a981956593b8ad70fd80959c2958166f4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>dev_warn</b>(format,...)&#160;&#160;&#160;printf(format, ## __VA_ARGS__)</td></tr>
 <tr class="memitem:a026a73620e4b2ea2b06125397a42b8b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a026a73620e4b2ea2b06125397a42b8b7"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>dev_dbg</b>(format,...)&#160;&#160;&#160;printf(format, ## __VA_ARGS__)</td></tr>
 <tr class="memitem:aaba3723dc96574b8e5eaf4a2d9debaa3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaba3723dc96574b8e5eaf4a2d9debaa3"></a>
@@ -167,6 +168,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a4b5f4d73338f1b3108b995bb1361936f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b5f4d73338f1b3108b995bb1361936f"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>usleep</b> (unsigned long usleep)</td></tr>
 <tr class="memitem:af8543f090df2bcbd49f8d16e642893d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8543f090df2bcbd49f8d16e642893d4"></a>
 static void *&#160;</td><td class="memItemRight" valign="bottom"><b>ERR_PTR</b> (long error)</td></tr>
 <tr class="memitem:af6a46a3a71676e55bfacb88071d523f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6a46a3a71676e55bfacb88071d523f6"></a>
@@ -267,7 +270,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_
 <div class="line">        const typeof( ((type *)0)-&gt;member ) *__mptr = (ptr);    \</div>
 <div class="line">        (type *)( (<span class="keywordtype">char</span> *)__mptr - offsetof(type,member) );})</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="util_8h_source.html#l00119">119</a> of file <a class="el" href="util_8h_source.html">util.h</a>.</p>
+<p>Definition at line <a class="el" href="util_8h_source.html#l00129">129</a> of file <a class="el" href="util_8h_source.html">util.h</a>.</p>
 
 </div>
 </div>
@@ -303,7 +306,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_
 <div class="line">                        (((__x) + ((__d) / 2)) / (__d)) :       \</div>
 <div class="line">                        (((__x) - ((__d) / 2)) / (__d));})</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="util_8h_source.html#l00068">68</a> of file <a class="el" href="util_8h_source.html">util.h</a>.</p>
+<p>Definition at line <a class="el" href="util_8h_source.html#l00077">77</a> of file <a class="el" href="util_8h_source.html">util.h</a>.</p>
 
 </div>
 </div>
@@ -336,14 +339,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_
 <div class="line">                n = ((uint64_t) (n)) / (uint64_t) (base);               \</div>
 <div class="line">                __res;})</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="util_8h_source.html#l00123">123</a> of file <a class="el" href="util_8h_source.html">util.h</a>.</p>
+<p>Definition at line <a class="el" href="util_8h_source.html#l00133">133</a> of file <a class="el" href="util_8h_source.html">util.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 6 2013 12:29:47 for AD9361 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 7 2014 11:18:28 for AD9361 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
