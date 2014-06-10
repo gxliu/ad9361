@@ -1,0 +1,29 @@
+PLATFORM=platform_linux
+
+CFLAGS=-c -Wall -I$(PLATFORM) -Iconsole_commands #-DCONSOLE_COMMANDS
+LIB_SOURCES=ad9361.o ad9361_api.o $(PLATFORM)/platform.o util.o #xcommand.o console.o
+SOURCES=main.o $(LIB_SOURCES)
+OBJECTS=$(LIB_SOURCES:.c=.o)
+EXECUTABLE=ad9361_linux
+
+all: $(SOURCES) $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS) ad9361-lib.a
+	$(CC) $(LDFLAGS) $(OBJECTS) main.c -o $@ -I$(PLATFORM) -L/ad9361-lib
+
+ad9361-lib.a: $(LIB_SOURCES)
+	$(AR) rvs lib-ad9361.a $+
+
+platform.o: $(PLATFORM)/platform.o
+
+command.o: console_commands/command.o
+
+console.o: console_commands/console.o
+
+.c.o:
+	$(CC) $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf *.a *.o */*.o $(EXECUTABLE)
+
+
