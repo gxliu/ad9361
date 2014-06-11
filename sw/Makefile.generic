@@ -1,4 +1,4 @@
-PLATFORM=platform_linux
+PLATFORM=platform_generic
 
 CFLAGS=-c -Wall -I$(PLATFORM) -Iconsole_commands #-DCONSOLE_COMMANDS
 
@@ -8,7 +8,7 @@ LIB_INCLUDES := $(wildcard *.h) $(wildcard $(PLATFORM)/*.c)
 
 MAIN_SOURCES := main.c #console_commands/command.c console_commands/console.c
 
-EXEC=ad9361_linux
+EXEC=ad9361_generic
 
 all: $(SOURCES) $(EXEC)
 
@@ -23,4 +23,4 @@ libad9361.a: $(LIB_SOURCES)
 
 clean:
 	rm -rf *.a *.o */*.o
-	rm $(EXEC)
+	rm -f $(EXEC)

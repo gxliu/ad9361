@@ -43,7 +43,7 @@
 #include "command.h"
 #include "console.h"
 #include "../ad9361_api.h"
-//#include "dac_core.h"
+#include "dac_core.h"
 
 /******************************************************************************/
 /************************ Constants Definitions *******************************/
