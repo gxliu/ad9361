@@ -31,7 +31,7 @@ $(EXEC): $(LIBS) $(MAIN_SOURCES)
 
 system.mss: $(SDK_EXPORT) $(HWSPEC)
 	appguru -hw $(HWSPEC) -app empty_application -pe sys_mb
-	rm Makefile
+	rm Makefile README.txt
 
 sys_mb/lib/libxil.a: system.mss
 	libgen -hw $(HWSPEC)  -pe sys_mb -od . -log libgen.log system.mss
@@ -52,7 +52,6 @@ $(PLATFORM)/platform.o: $(PLATFORM)/platform.c util.h ad9361.h common.h \
 
 .c.o:
 	$(CC) -c $(CFLAGS) $< -o $@ $(INCLUDEPATH)
-
 clean:
 	rm -rf *.a *.o */*.o sys_mb
 	rm -f $(EXEC) system.mss libgen.log lscript.ld

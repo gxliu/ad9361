@@ -30,7 +30,7 @@ $(EXEC): $(LIBS) $(MAIN_SOURCES)
 
 system.mss: $(SDK_EXPORT) $(HWSPEC)
 	appguru -hw $(HWSPEC) -app empty_application -pe ps7_cortexa9_0
-	rm Makefile
+	rm Makefile README.txt
 
 ps7_cortexa9_0/lib/libxil.a: system.mss
 	libgen -hw $(HWSPEC)  -pe ps7_cortexa9_0 -od . -log libgen.log system.mss
