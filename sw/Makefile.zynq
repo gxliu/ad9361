@@ -9,11 +9,11 @@ CC := $(CROSS_COMPILE)-gcc
 AR := $(CROSS_COMPILE)-ar
 
 LN_FLAGS := -Wl,--start-group,-lxil,-lgcc,-lc,-lad9361,--end-group
-CFLAGS= -Wall -I$(PLATFORM) -DXILINX_PLATFORM -DCONSOLE_COMMANDS
+CFLAGS= -MMD -Wall -I$(PLATFORM) -DXILINX_PLATFORM -DCONSOLE_COMMANDS
 
 LIB_C_SOURCES := $(filter-out main.c, $(wildcard *.c)) $(wildcard $(PLATFORM)/*.c)
 LIB_SOURCES := $(patsubst %.c, %.o, $(LIB_C_SOURCES))
-LIB_INCLUDES := $(wildcard *.h) $(wildcard $(PLATFORM)/*.c)
+LIB_INCLUDES := $(wildcard *.h) $(wildcard $(PLATFORM)/*.h)
 
 MAIN_SOURCES := main.c console_commands/command.c console_commands/console.c
 
@@ -37,6 +37,18 @@ ps7_cortexa9_0/lib/libxil.a: system.mss
 
 libad9361.a: $(LIB_SOURCES) $(LIB_INCLUDES)
 	$(AR) rvs libad9361.a $+
+
+
+ad9361_api.o: ad9361_api.c ad9361.h common.h ad9361_api.h util.h \
+	$(PLATFORM)/platform.h util.h
+
+ad9361.o: ad9361.c ad9361.h common.h $(PLATFORM)/platform.h util.h ad9361.h \
+	common.h util.h
+
+util.o: util.c util.h ad9361.h common.h
+
+$(PLATFORM)/platform.o: $(PLATFORM)/platform.c util.h ad9361.h common.h \
+	$(PLATFORM)/parameters.h
 
 .c.o:
 	$(CC) -c $(CFLAGS) $< -o $@ $(INCLUDEPATH)
