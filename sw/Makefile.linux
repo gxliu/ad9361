@@ -13,7 +13,7 @@ EXEC=ad9361_linux
 all: $(SOURCES) $(EXEC)
 
 $(EXEC): libad9361.a $(MAIN_SOURCES)
-	$(CC) $(LDFLAGS) $(MAIN_SOURCES) -o $@ -I$(PLATFORM) -lad9361 -L.
+	$(CC) $(LDFLAGS) $(MAIN_SOURCES) -o $@ -I$(PLATFORM) -DLINUX_PLATFORM -lad9361 -L.
 
 libad9361.a: $(LIB_SOURCES)
 	$(AR) rvs libad9361.a $+
