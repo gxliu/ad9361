@@ -204,6 +204,10 @@ void dac_init(struct ad9361_rf_phy *phy, uint8_t data_sel)
 			data_q2 = (sine_lut[index_q2 / 2] << 4);
 			*((unsigned *) (tx_buff_virt_addr + ((index + 1) * 4))) = data_i2 | data_q2;
 		}
+
+		munmap(mapping_addr, mapping_length);
+		close(dev_mem_fd);
+
 		dac_dma_write(AXI_DMAC_REG_CTRL, 0);
 		dac_dma_write(AXI_DMAC_REG_CTRL, AXI_DMAC_CTRL_ENABLE);
 		dac_dma_write(AXI_DMAC_REG_SRC_ADDRESS, TX_BUFF_MEM_ADDR);
