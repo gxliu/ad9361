@@ -116,6 +116,7 @@ int32_t ad9361_init (struct ad9361_rf_phy **ad9361_phy, AD9361_InitParam *init_p
 
 	/* Base Configuration */
 	phy->pdata->fdd = init_param->frequency_division_duplex_mode_enable;
+	phy->pdata->fdd_independent_mode = init_param->frequency_division_duplex_independent_mode_enable;
 	phy->pdata->rx2tx2 = init_param->two_rx_two_tx_mode_enable;
 	phy->pdata->tdd_use_dual_synth = init_param->tdd_use_dual_synth_mode_enable;
 	phy->pdata->tdd_skip_vco_cal = init_param->tdd_skip_vco_cal_enable;
@@ -132,6 +133,8 @@ int32_t ad9361_init (struct ad9361_rf_phy **ad9361_phy, AD9361_InitParam *init_p
 	phy->pdata->rf_dc_offset_count_low = init_param->dc_offset_count_low_range;
 	phy->pdata->tdd_use_fdd_tables = init_param->tdd_use_fdd_vco_tables_enable;
 	phy->pdata->split_gt = init_param->split_gain_table_mode_enable;
+	phy->pdata->trx_synth_max_fref = init_param->trx_synthesizer_target_fref_overwrite_hz;
+	phy->pdata->qec_tracking_slow_mode_en = init_param->qec_tracking_slow_mode_enable;
 
 	/* ENSM Control */
 	phy->pdata->ensm_pin_pulse_mode = init_param->ensm_enable_pin_pulse_mode_enable;
@@ -287,6 +290,7 @@ int32_t ad9361_init (struct ad9361_rf_phy **ad9361_phy, AD9361_InitParam *init_p
 	phy->pdata->elna_ctrl.elna_2_control_en = init_param->elna_rx2_gpo1_control_enable;
 
 	/* Digital Interface Control */
+	phy->pdata->dig_interface_tune_skipmode = (init_param->digital_interface_tune_skip_mode);
 	phy->pdata->port_ctrl.pp_conf[0] = (init_param->pp_tx_swap_enable << 7);
 	phy->pdata->port_ctrl.pp_conf[0] |= (init_param->pp_rx_swap_enable << 6);
 	phy->pdata->port_ctrl.pp_conf[0] |= (init_param->tx_channel_swap_enable << 5);
@@ -437,7 +441,7 @@ int32_t ad9361_get_en_state_machine_mode (struct ad9361_rf_phy *phy,
 /**
  * Set the receive RF gain for the selected channel.
  * @param phy The AD9361 current state structure.
- * @param ch The desired channel number (1, 2).
+ * @param ch The desired channel number (0, 1).
  * @param gain_db The RF gain (dB).
  * @return 0 in case of success, negative error code otherwise.
  */
@@ -456,7 +460,7 @@ int32_t ad9361_set_rx_rf_gain (struct ad9361_rf_phy *phy,
 /**
  * Get current receive RF gain for the selected channel.
  * @param phy The AD9361 current state structure.
- * @param ch The desired channel number (1, 2).
+ * @param ch The desired channel number (0, 1).
  * @param gain_db A variable to store the RF gain (dB).
  * @return 0 in case of success, negative error code otherwise.
  */
@@ -581,7 +585,7 @@ int32_t ad9361_get_rx_lo_freq (struct ad9361_rf_phy *phy,
 /**
  * Get the RSSI for the selected channel.
  * @param phy The AD9361 current state structure.
- * @param ch The desired channel (1, 2).
+ * @param ch The desired channel (0, 1).
  * @param rssi A variable to store the RSSI.
  * @return 0 in case of success, negative error code otherwise.
  */
@@ -600,7 +604,7 @@ int32_t ad9361_get_rx_rssi (struct ad9361_rf_phy *phy,
 /**
  * Set the gain control mode for the selected channel.
  * @param phy The AD9361 current state structure.
- * @param ch The desired channel (1, 2).
+ * @param ch The desired channel (0, 1).
  * @param gc_mode The gain control mode (GAIN_MGC, GAIN_FASTATTACK_AGC,
  *                GAIN_SLOWATTACK_AGC, GAIN_HYBRID_AGC).
  * @return 0 in case of success, negative error code otherwise.
@@ -621,7 +625,7 @@ int32_t ad9361_set_rx_gain_control_mode (struct ad9361_rf_phy *phy,
 /**
  * Get the gain control mode for the selected channel.
  * @param phy The AD9361 current state structure.
- * @param ch The desired channel (1, 2).
+ * @param ch The desired channel (0, 1).
  * @param gc_mode A variable to store the gain control mode.
  * @return 0 in case of success, negative error code otherwise.
  */
@@ -847,7 +851,7 @@ int32_t ad9361_get_rx_quad_track_en_dis (struct ad9361_rf_phy *phy,
 /**
  * Set the transmit attenuation for the selected channel.
  * @param phy The AD9361 current state structure.
- * @param ch The desired channel number (1, 2).
+ * @param ch The desired channel number (0, 1).
  * @param attenuation_mdb The attenuation (mdB).
  * @return 0 in case of success, negative error code otherwise.
  */
@@ -866,18 +870,18 @@ int32_t ad9361_set_tx_attenuation (struct ad9361_rf_phy *phy,
 /**
  * Get current transmit attenuation for the selected channel.
  * @param phy The AD9361 current state structure.
- * @param ch The desired channel number (1, 2).
+ * @param ch The desired channel number (0, 1).
  * @param attenuation_mdb A variable to store the attenuation value (mdB).
  * @return 0 in case of success, negative error code otherwise.
  */
 int32_t ad9361_get_tx_attenuation (struct ad9361_rf_phy *phy,
 								   uint8_t ch, uint32_t *attenuation_db)
 {
-	uint32_t ret;
+	int32_t ret;
 
 	ret = ad9361_get_tx_atten(phy, ch + 1);
 	if(ret < 0)
-		return EINVAL;
+		return ret;
 	*attenuation_db = ret;
 
 	return 0;
@@ -1091,6 +1095,47 @@ int32_t ad9361_get_tx_fir_en_dis (struct ad9361_rf_phy *phy,
 }
 
 /**
+ * Get the TX RSSI for the selected channel (TX_MON should be enabled).
+ * @param phy The AD9361 current state structure.
+ * @param ch The desired channel (0, 1).
+ * @param rssi_db_x_1000 A variable to store the RSSI.
+ * @return 0 in case of success, negative error code otherwise.
+ */
+int32_t ad9361_get_tx_rssi (struct ad9361_rf_phy *phy,
+							uint8_t ch,
+							uint32_t *rssi_db_x_1000)
+{
+	uint8_t reg_val_buf[3];
+	uint32_t val;
+	int32_t ret;
+
+	ret = ad9361_spi_readm(phy->spi, REG_TX_RSSI_LSB,
+			reg_val_buf, ARRAY_SIZE(reg_val_buf));
+	if (ret < 0) {
+		return ret;
+	}
+
+	switch (ch)
+	{
+	case 0:
+		val = (reg_val_buf[2] << 1) | (reg_val_buf[0] & TX_RSSI_1);
+		break;
+	case 1:
+		val = (reg_val_buf[1] << 1) | ((reg_val_buf[0] & TX_RSSI_2) >> 1);
+		break;
+	default:
+		return -EINVAL;
+	}
+
+	val *= RSSI_RESOLUTION;
+
+	*rssi_db_x_1000 = ((val / RSSI_MULTIPLIER) * 1000) +
+			(val % RSSI_MULTIPLIER);
+
+	return 0;
+}
+
+/**
  * Set the RX and TX path rates.
  * @param phy The AD9361 state structure.
  * @param rx_path_clks RX path rates buffer.
@@ -1143,7 +1188,7 @@ int32_t ad9361_set_no_ch_mode(struct ad9361_rf_phy *phy, uint8_t no_ch_mode)
 		phy->pdata->rx2tx2 = 1;
 		break;
 	default:
-		return -1;
+		return -EINVAL;
 	}
 
 	phy->adc_conv->chip_info = &axiadc_chip_info_tbl[phy->pdata->rx2tx2 ? ID_AD9361 : ID_AD9364];

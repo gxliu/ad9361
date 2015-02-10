@@ -42,6 +42,7 @@
 /******************************************************************************/
 #include "util.h"
 #include "string.h"
+#include "platform.h"
 
 /******************************************************************************/
 /*************************** Macros Definitions *******************************/
@@ -53,6 +54,10 @@
 *******************************************************************************/
 int32_t clk_prepare_enable(struct clk *clk)
 {
+	if (clk) {
+		// Unused variable - fix compiler warning
+	}
+
 	return 0;
 }
 
@@ -300,5 +305,7 @@ void *zmalloc(size_t size)
 	void *ptr = malloc(size);
 	if (ptr)
 		memset(ptr, 0, size);
+	mdelay(1);
+
 	return ptr;
 }

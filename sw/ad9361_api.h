@@ -56,6 +56,7 @@ typedef struct
 	/* Base Configuration */
 	uint8_t		two_rx_two_tx_mode_enable;	/* adi,2rx-2tx-mode-enable */
 	uint8_t		frequency_division_duplex_mode_enable;	/* adi,frequency-division-duplex-mode-enable */
+	uint8_t		frequency_division_duplex_independent_mode_enable;	/* adi,frequency-division-duplex-independent-mode-enable */
 	uint8_t		tdd_use_dual_synth_mode_enable;	/* adi,tdd-use-dual-synth-mode-enable */
 	uint8_t		tdd_skip_vco_cal_enable;		/* adi,tdd-skip-vco-cal-enable */
 	uint32_t	tx_fastlock_delay_ns;	/* adi,tx-fastlock-delay-ns */
@@ -71,6 +72,8 @@ typedef struct
 	uint8_t		dc_offset_count_low_range;			/* adi,dc-offset-count-low-range */
 	uint8_t		tdd_use_fdd_vco_tables_enable;	/* adi,tdd-use-fdd-vco-tables-enable */
 	uint8_t		split_gain_table_mode_enable;	/* adi,split-gain-table-mode-enable */
+	uint32_t	trx_synthesizer_target_fref_overwrite_hz;	/* adi,trx-synthesizer-target-fref-overwrite-hz */
+	uint8_t		qec_tracking_slow_mode_enable;	/* adi,qec-tracking-slow-mode-enable */
 	/* ENSM Control */
 	uint8_t		ensm_enable_pin_pulse_mode_enable;	/* adi,ensm-enable-pin-pulse-mode-enable */
 	uint8_t		ensm_enable_txnrx_control_enable;	/* adi,ensm-enable-txnrx-control-enable */
@@ -203,6 +206,7 @@ typedef struct
 	uint8_t		elna_rx1_gpo0_control_enable;	/* adi,elna-rx1-gpo0-control-enable */
 	uint8_t		elna_rx2_gpo1_control_enable;	/* adi,elna-rx2-gpo1-control-enable */
 	/* Digital Interface Control */
+	uint32_t	digital_interface_tune_skip_mode;	/* adi,digital-interface-tune-skip-mode */
 	uint8_t		pp_tx_swap_enable;	/* adi,pp-tx-swap-enable */
 	uint8_t		pp_rx_swap_enable;	/* adi,pp-rx-swap-enable */
 	uint8_t		tx_channel_swap_enable;	/* adi,tx-channel-swap-enable */
@@ -342,6 +346,8 @@ int32_t ad9361_get_tx_fir_config(struct ad9361_rf_phy *phy, uint8_t tx_ch, AD936
 int32_t ad9361_set_tx_fir_en_dis (struct ad9361_rf_phy *phy, uint8_t en_dis);
 /* Get the status of the TX FIR filter. */
 int32_t ad9361_get_tx_fir_en_dis (struct ad9361_rf_phy *phy, uint8_t *en_dis);
+/* Get the TX RSSI for the selected channel. */
+int32_t ad9361_get_tx_rssi (struct ad9361_rf_phy *phy, uint8_t ch, uint32_t *rssi_db_x_1000);
 /* Set the RX and TX path rates. */
 int32_t ad9361_set_trx_path_clks(struct ad9361_rf_phy *phy, uint32_t *rx_path_clks, uint32_t *tx_path_clks);
 /* Get the RX and TX path rates. */

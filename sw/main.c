@@ -43,6 +43,7 @@
 //#define CONSOLE_COMMANDS
 //#define XILINX_PLATFORM
 //#define FMCOMMS5
+//#define CAPTURE_SCRIPT
 
 /******************************************************************************/
 /***************************** Include Files **********************************/
@@ -87,6 +88,7 @@ AD9361_InitParam default_init_param = {
 	/* Base Configuration */
 	1,		//two_rx_two_tx_mode_enable *** adi,2rx-2tx-mode-enable
 	1,		//frequency_division_duplex_mode_enable *** adi,frequency-division-duplex-mode-enable
+	0,		//frequency_division_duplex_independent_mode_enable *** adi,frequency-division-duplex-independent-mode-enable
 	0,		//tdd_use_dual_synth_mode_enable *** adi,tdd-use-dual-synth-mode-enable
 	0,		//tdd_skip_vco_cal_enable *** adi,tdd-skip-vco-cal-enable
 	0,		//tx_fastlock_delay_ns *** adi,tx-fastlock-delay-ns
@@ -102,6 +104,8 @@ AD9361_InitParam default_init_param = {
 	0x32,	//dc_offset_count_low_range *** adi,dc-offset-tracking-update-event-mask
 	0,		//tdd_use_fdd_vco_tables_enable *** adi,tdd-use-fdd-vco-tables-enable
 	0,		//split_gain_table_mode_enable *** adi,split-gain-table-mode-enable
+	MAX_SYNTH_FREF,	//trx_synthesizer_target_fref_overwrite_hz *** adi,trx-synthesizer-target-fref-overwrite-hz
+	0,		// qec_tracking_slow_mode_enable *** adi,qec-tracking-slow-mode-enable
 	/* ENSM Control */
 	0,		//ensm_enable_pin_pulse_mode_enable *** adi,ensm-enable-pin-pulse-mode-enable
 	0,		//ensm_enable_txnrx_control_enable *** adi,ensm-enable-txnrx-control-enable
@@ -235,6 +239,7 @@ AD9361_InitParam default_init_param = {
 	0,		//elna_rx1_gpo0_control_enable *** adi,elna-rx1-gpo0-control-enable
 	0,		//elna_rx2_gpo1_control_enable *** adi,elna-rx2-gpo1-control-enable
 	/* Digital Interface Control */
+	0,		//digital_interface_tune_skip_mode *** adi,digital-interface-tune-skip-mode
 	1,		//pp_tx_swap_enable *** adi,pp-tx-swap-enable
 	1,		//pp_rx_swap_enable *** adi,pp-rx-swap-enable
 	0,		//tx_channel_swap_enable *** adi,tx-channel-swap-enable
@@ -353,7 +358,12 @@ int main(void)
 	default_init_param.gpio_cal_sw1 = -1;
 	default_init_param.gpio_cal_sw2 = -1;
 #endif
+
+#ifdef LINUX_PLATFORM
+	gpio_init(default_init_param.gpio_resetb);
+#else
 	gpio_init(GPIO_DEVICE_ID);
+#endif
 	gpio_direction(default_init_param.gpio_resetb, 1);
 
 	spi_init(SPI_DEVICE_ID, 1, 0);
@@ -400,7 +410,6 @@ int main(void)
 	mdelay(1000);
     adc_capture(16384, ADC_DDR_BASEADDR);
     Xil_DCacheInvalidateRange(ADC_DDR_BASEADDR, 16384);
-    while(1);
 #endif
 
 #ifdef CONSOLE_COMMANDS
@@ -429,9 +438,9 @@ int main(void)
 			console_print("Invalid command!\n");
 		}
 	}
-#else
-	while(1);
 #endif
+
+	printf("Done.\n");
 
 #ifdef XILINX_PLATFORM
 	Xil_DCacheDisable();

@@ -1053,6 +1053,8 @@
 /*
 *	REG_TPM_MODE_ENABLE
 */
+#define TX2_MON_ENABLE		     	 (1 << 7) /* Tx2 Monitor Enable */
+#define TX1_MON_ENABLE		     	 (1 << 5) /* Tx1 Monitor Enable */
 #define ONE_SHOT_MODE			     (1 << 6) /* One Shot Mode */
 #define TX_MON_DURATION(x)		     (((x) & 0xF) << 0) /* Tx Mon Duration<3:0> */
 
@@ -1412,7 +1414,7 @@
 *	REG_SMALL_LMT_OVERLOAD_THRESH
 */
 #define FORCE_PD_RESET_RX2		     (1 << 7) /* Force PD Reset Rx2 */
-#define FOR_PD_RESET_RX1			     (1 << 6) /* For PD Reset Rx1 */
+#define FORCE_PD_RESET_RX1			     (1 << 6) /* Force PD Reset Rx1 */
 #define SMALL_LMT_OVERLOAD_THRESH(x)	     (((x) & 0x3F) << 0) /* Small LMT Overload Threshold<5:0> */
 
 /*
@@ -2815,6 +2817,7 @@
 #define MAX_LPF_GAIN			24
 #define MAX_DIG_GAIN			31
 
+#define MAX_BBPLL_FREF			70000000UL /* 70 MHz */
 #define MIN_BBPLL_FREQ			715000000UL /* 715 MHz */
 #define MAX_BBPLL_FREQ			1430000000UL /* 1430 MHz */
 #define MAX_BBPLL_DIV			64
@@ -2829,6 +2832,8 @@
 #define RFPLL_MODULUS			8388593UL
 #define BBPLL_MODULUS			2088960UL
 
+#define MAX_SYNTH_FREF			80000000UL /* 80 MHz */
+#define MIN_SYNTH_FREF			10000000UL /* 10 MHz */
 #define MIN_VCO_FREQ_HZ			6000000000ULL
 #define MAX_CARRIER_FREQ_HZ		6000000000ULL
 #define MIN_CARRIER_FREQ_HZ		47000000ULL
@@ -3100,6 +3105,7 @@ enum ad9361_clkout {
 struct ad9361_phy_platform_data {
 	bool			rx2tx2;
 	bool			fdd;
+	bool			fdd_independent_mode;
 	bool			split_gt;
 	bool 			use_extclk;
 	bool			ensm_pin_pulse_mode;
@@ -3111,17 +3117,20 @@ struct ad9361_phy_platform_data {
 	bool			use_ext_rx_lo;
 	bool			use_ext_tx_lo;
 	bool			rx1rx2_phase_inversion_en;
+	bool			qec_tracking_slow_mode_en;
 	uint8_t			dc_offset_update_events;
 	uint8_t			dc_offset_attenuation_high;
 	uint8_t			dc_offset_attenuation_low;
 	uint8_t			rf_dc_offset_count_high;
 	uint8_t			rf_dc_offset_count_low;
+	uint8_t			dig_interface_tune_skipmode;
 	uint32_t			dcxo_coarse;
 	uint32_t			dcxo_fine;
 	uint32_t			rf_rx_input_sel;
 	uint32_t			rf_tx_output_sel;
 	uint32_t		rx_path_clks[NUM_RX_CLOCKS];
 	uint32_t		tx_path_clks[NUM_TX_CLOCKS];
+	uint32_t		trx_synth_max_fref;
 	uint64_t			rx_synth_freq;
 	uint64_t			tx_synth_freq;
 	uint32_t			rf_rx_bandwidth_Hz;
@@ -3753,6 +3762,11 @@ struct ad9361_rf_phy {
 	bool			bypass_rx_fir;
 	bool			bypass_tx_fir;
 	bool			rx_eq_2tx;
+	bool			filt_valid;
+	uint32_t		filt_rx_path_clks[NUM_RX_CLOCKS];
+	uint32_t		filt_tx_path_clks[NUM_TX_CLOCKS];
+	uint32_t		filt_rx_bw_Hz;
+	uint32_t		filt_tx_bw_Hz;
 	uint8_t			tx_fir_int;
 	uint8_t			tx_fir_ntaps;
 	uint8_t			rx_fir_dec;
@@ -3761,6 +3775,7 @@ struct ad9361_rf_phy {
 	bool			rfdc_track_en;
 	bool			bbdc_track_en;
 	bool			quad_track_en;
+	bool			txmon_tdd_en;
 	uint16_t 			auxdac1_value;
 	uint16_t 			auxdac2_value;
 	struct ad9361_fastlock	fastlock;
@@ -3802,6 +3817,8 @@ enum {
 /******************************************************************************/
 /************************ Functions Declarations ******************************/
 /******************************************************************************/
+int32_t ad9361_spi_readm(struct spi_device *spi, uint32_t reg,
+	uint8_t *rbuf, uint32_t num);
 int32_t ad9361_spi_read(struct spi_device *spi, uint32_t reg);
 int32_t ad9361_spi_write(struct spi_device *spi,
 	uint32_t reg, uint32_t val);
